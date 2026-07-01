@@ -1,0 +1,9 @@
+{
+  "name": "White Crest Dental",
+  "description": "A professional dental clinic application featuring service listings, doctor profiles, and appointment booking.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": []
+}
