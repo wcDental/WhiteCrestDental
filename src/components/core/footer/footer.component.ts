@@ -54,7 +54,7 @@ import { RouterLink } from '@angular/router';
               </li>
               <li class="flex items-center">
                 <span class="mr-3">✉️</span>
-                <span>hello@whitecrestdental.com</span>
+                <span>hello@whitecrestdental.in</span>
               </li>
             </ul>
           </div>
