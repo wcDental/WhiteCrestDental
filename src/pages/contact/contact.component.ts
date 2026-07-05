@@ -139,7 +139,7 @@ import { Title, Meta } from "@angular/platform-browser";
                       Email
                     </p>
                     <p class="text-lg font-medium text-white break-all">
-                      hello@whitecrestdental.com
+                      hello@whitecrestdental.in
                     </p>
                   </div>
                 </div>
