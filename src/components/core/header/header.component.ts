@@ -57,6 +57,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
                class="text-slate-600 hover:text-teal-600 transition-colors px-3 py-2 text-sm font-medium">
               FAQ
             </a>
+            <a routerLink="/care-tips" 
+               routerLinkActive="text-teal-600 font-semibold"
+               class="text-slate-600 hover:text-teal-600 transition-colors px-3 py-2 text-sm font-medium">
+              Care Tips
+            </a>
           </nav>
 
           <!-- CTA Button -->
@@ -90,6 +95,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
             <a routerLink="/gallery" (click)="closeMenu()" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 border-b border-slate-50">Transformation Gallery</a>
             <a routerLink="/contact" (click)="closeMenu()" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 border-b border-slate-50">Contact</a>
             <a routerLink="/faq" (click)="closeMenu()" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 border-b border-slate-50">FAQ</a>
+            <a routerLink="/care-tips" (click)="closeMenu()" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 border-b border-slate-50">Care Tips</a>
             <div class="pt-4 px-2">
                <a routerLink="/contact" (click)="closeMenu()" class="block w-full text-center px-4 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-bold shadow-md transition-colors">Book Appointment</a>
             </div>

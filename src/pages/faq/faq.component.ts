@@ -60,8 +60,16 @@ interface FaqItem {
             <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all duration-300 hover:shadow-md"
                  [class.ring-2]="faq.isOpen" [class.ring-teal-500]="faq.isOpen" [class.ring-opacity-50]="faq.isOpen">
               
-              <button (click)="toggleFaq(faq.id)" class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
-                <span class="text-lg font-bold text-slate-900 pr-8">{{ faq.question }}</span>
+              <button (click)="toggleFaq(faq.id)" class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none gap-4">
+                <div class="flex items-center gap-3.5 flex-grow pr-4">
+                  <span class="flex-shrink-0 w-8 h-8 rounded-xl bg-teal-50 text-teal-700 font-bold text-xs md:text-sm flex items-center justify-center border border-teal-100/80 transition-colors"
+                        [class.bg-teal-600]="faq.isOpen"
+                        [class.text-white]="faq.isOpen"
+                        [class.border-teal-600]="faq.isOpen">
+                    {{ faq.id < 10 ? '0' + faq.id : faq.id }}
+                  </span>
+                  <span class="text-base md:text-lg font-bold text-slate-900">{{ faq.question }}</span>
+                </div>
                 <span class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-teal-600 transition-transform duration-300"
                       [class.rotate-180]="faq.isOpen"
                       [class.bg-teal-50]="!faq.isOpen"
@@ -78,7 +86,7 @@ interface FaqItem {
                    [class.opacity-0]="!faq.isOpen"
                    [class.max-h-96]="faq.isOpen"
                    [class.opacity-100]="faq.isOpen">
-                <div class="pt-2 border-t border-slate-100">
+                <div class="pt-3 border-t border-slate-100 md:pl-11">
                   {{ faq.answer }}
                 </div>
               </div>

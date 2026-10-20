@@ -1,19 +1,14 @@
-
-import { Component, ChangeDetectionStrategy, signal, inject, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, computed, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
-
-interface ServiceItem {
-  title: string;
-  slug: string;
-  description: string;
-  image: string;
-}
+import { SERVICES_LIST, ServiceItem } from './services.data';
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule, FormsModule],
   template: `
     <div class="bg-white font-sans">
       <!-- Merged Hero & Expertise Section -->
@@ -21,7 +16,7 @@ interface ServiceItem {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <!-- Unified Header -->
-          <div class="text-center max-w-4xl mx-auto mb-16">
+          <div class="text-center max-w-4xl mx-auto mb-12">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-slate-900 mb-6 leading-tight">
               Dental Services Reimagined
             </h1>
@@ -34,38 +29,78 @@ interface ServiceItem {
               <span class="h-px w-12 bg-slate-200"></span>
             </div>
           </div>
+
+          <!-- Search Section (Matching Gallery Style) -->
+          <div class="max-w-xl mx-auto mb-16 relative">
+            <div class="relative group">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg class="h-5 w-5 text-slate-400 group-focus-within:text-teal-600 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input 
+                type="text" 
+                [value]="searchQuery()"
+                (input)="onSearch($event)"
+                class="block w-full pl-11 pr-11 py-4 border-2 border-slate-200 rounded-full leading-5 bg-white placeholder-slate-400 focus:outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 transition-all shadow-sm text-slate-900"
+                placeholder="Search treatments (e.g., 'Veneers', 'Implants', 'Root Canal')..."
+              >
+              @if (searchQuery()) {
+                <button 
+                  (click)="clearSearch()"
+                  aria-label="Clear search"
+                  class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 transition-colors">
+                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              }
+            </div>
+          </div>
           
           <!-- Expertise Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            @for (item of expertiseItems(); track item.slug) {
-              <a [routerLink]="['/services', item.slug]" 
-                 class="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl border border-slate-100 hover:border-teal-500/30 transition-all duration-300 hover:-translate-y-1">
-                
-                <!-- Image Container -->
-                <div class="relative h-48 w-full overflow-hidden bg-slate-200">
-                  <img [src]="item.image" [alt]="item.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                  <div class="absolute bottom-4 left-4 right-4">
-                    <h3 class="text-white text-xl font-bold drop-shadow-md">{{ item.title }}</h3>
+          @if (filteredServices().length > 0) {
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              @for (item of filteredServices(); track item.slug) {
+                <a [routerLink]="['/services', item.slug]" 
+                   class="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl border border-slate-100 hover:border-teal-500/30 transition-all duration-300 hover:-translate-y-1">
+                  
+                  <!-- Image Container -->
+                  <div class="relative h-48 w-full overflow-hidden bg-slate-200">
+                    <img [src]="item.image" [alt]="item.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                      <h3 class="text-white text-xl font-bold drop-shadow-md">{{ item.title }}</h3>
+                    </div>
                   </div>
-                </div>
-                
-                <!-- Content -->
-                <div class="p-6 flex flex-col flex-grow">
-                  <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-                    {{ item.description }}
-                  </p>
+                  
+                  <!-- Content -->
+                  <div class="p-6 flex flex-col flex-grow">
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+                      {{ item.description }}
+                    </p>
 
-                  <div class="mt-auto flex items-center text-teal-600 font-bold text-sm uppercase tracking-wide">
-                    View Details
-                    <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                    <div class="mt-auto flex items-center text-teal-600 font-bold text-sm uppercase tracking-wide">
+                      View Details
+                      <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
                   </div>
-                </div>
-              </a>
-            }
-          </div>
+                </a>
+              }
+            </div>
+          } @else {
+            <!-- Empty State -->
+            <div class="text-center py-20 bg-slate-50 rounded-3xl border border-dashed border-slate-300 max-w-xl mx-auto">
+              <div class="text-5xl mb-4">🔍</div>
+              <h3 class="text-lg font-medium text-slate-900">No services found</h3>
+              <p class="text-slate-500 mt-1">Try adjusting your search terms or view all services.</p>
+              <button (click)="clearSearch()" class="mt-4 text-teal-600 font-semibold hover:text-teal-800 transition-colors">
+                Clear search
+              </button>
+            </div>
+          }
         </div>
       </section>
 
@@ -130,107 +165,33 @@ export class ServicesComponent implements OnInit {
   private title: Title = inject(Title);
   private meta: Meta = inject(Meta);
 
-  expertiseItems = signal<ServiceItem[]>([
-    {
-      title: 'Oral Examination & Investigation',
-      slug: 'oral-examination',
-      description: 'Detailed check-ups using digital X-rays and diagnostic aids.',
-      image: 'https://picsum.photos/seed/oralexam/600/400'
-    },
-    {
-      title: 'Cleaning and Polishing',
-      slug: 'cleaning-and-polishing',
-      description: 'Remove surface stains and tartar with professional scaling and polishing for a healthier, smoother smile.',
-      image: 'https://picsum.photos/seed/cleaning/600/400'
-    },
-    {
-      title: 'Fillings & Restorations',
-      slug: 'fillings-and-restorations',
-      description: 'Restore damaged teeth to their original shape and function using durable materials that match your natural smile.',
-      image: 'https://picsum.photos/seed/fillings/600/400'
-    },
-    {
-      title: 'Extraction and Minor Surgery',
-      slug: 'extraction-and-minor-surgery',
-      description: 'Expert oral surgery for painless tooth extractions, wisdom teeth removal, and cyst treatment with minimal recovery time.',
-      image: 'https://picsum.photos/seed/extraction/600/400'
-    },
-    {
-      title: 'TMJ Disorder',
-      slug: 'tmj-disorder',
-      description: 'Relieve jaw pain, clicking, and locking with personalized care for Temporomandibular Joint (TMJ) disorders.',
-      image: 'https://picsum.photos/seed/tmj/600/400'
-    },
-    { 
-      title: 'Veneers', 
-      slug: 'veneers', 
-      description: 'Custom-crafted shells for a flawless smile appearance.', 
-      image: 'https://picsum.photos/seed/veneers/600/400' 
-    },
-    { 
-      title: 'Invisalign', 
-      slug: 'invisalign', 
-      description: 'Clear aligners for discreet and comfortable straightening.', 
-      image: 'https://picsum.photos/seed/invisalign/600/400' 
-    },
-    { 
-      title: 'Same-Day Crowns', 
-      slug: 'same-day-crowns', 
-      description: 'Restorations ready in a single visit with CEREC tech.', 
-      image: 'https://picsum.photos/seed/crowns/600/400' 
-    },
-    { 
-      title: 'Dental Implants', 
-      slug: 'dental-implants', 
-      description: 'Permanent, natural-looking replacements for missing teeth.', 
-      image: 'https://picsum.photos/seed/implants/600/400' 
-    },
-    { 
-      title: 'Teeth Whitening', 
-      slug: 'teeth-whitening', 
-      description: 'Professional treatment for brighter, whiter teeth.', 
-      image: 'https://picsum.photos/seed/whitening/600/400' 
-    },
-    {
-      title: 'Dental Bleaching',
-      slug: 'dental-bleaching',
-      description: 'Professional in-office whitening procedure to safely brighten your teeth by several shades.',
-      image: 'https://picsum.photos/seed/bleaching/600/400'
-    },
-    { 
-      title: 'Root Canals', 
-      slug: 'root-canals', 
-      description: 'Pain-free therapy to save infected natural teeth.', 
-      image: 'https://picsum.photos/seed/rootcanal/600/400' 
-    },
-    { 
-      title: 'Preventive Care', 
-      slug: 'preventive-care', 
-      description: 'Routine cleanings and exams to stop problems early.', 
-      image: 'https://picsum.photos/seed/preventive/600/400' 
-    },
-    { 
-      title: 'Full Mouth Rehab', 
-      slug: 'full-mouth-rehab', 
-      description: 'Complete restoration of function and aesthetics.', 
-      image: 'https://picsum.photos/seed/rehab/600/400' 
-    },
-    {
-      title: 'Cosmetic Restoration',
-      slug: 'cosmetic-restoration',
-      description: 'Enhance your smile with tooth-colored fillings and aesthetic treatments that look just like natural teeth.',
-      image: 'https://picsum.photos/seed/cosmeticrestoration/600/400'
-    },
-    {
-      title: 'Crowns and Bridge',
-      slug: 'crowns-and-bridge',
-      description: 'Restore damaged or missing teeth with durable caps and bridges made from metal, ceramic, or zirconia for a natural look.',
-      image: 'https://picsum.photos/seed/crownsbridge/600/400'
-    }
-  ]);
+  searchQuery = signal('');
+  allServices = signal<ServiceItem[]>(SERVICES_LIST);
+
+  filteredServices = computed(() => {
+    const query = this.searchQuery().toLowerCase().trim();
+    const services = this.allServices();
+
+    if (!query) return services;
+
+    return services.filter(service =>
+      service.title.toLowerCase().includes(query) ||
+      service.description.toLowerCase().includes(query) ||
+      service.slug.toLowerCase().includes(query)
+    );
+  });
 
   ngOnInit() {
     this.title.setTitle('Dental Services | White Crest Dental');
     this.meta.updateTag({ name: 'description', content: 'Explore our comprehensive dental services including Oral Exams, Invisalign, Veneers, Dental Implants, and Emergency Care.' });
+  }
+
+  onSearch(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.searchQuery.set(input.value);
+  }
+
+  clearSearch() {
+    this.searchQuery.set('');
   }
 }

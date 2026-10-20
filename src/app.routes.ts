@@ -31,6 +31,14 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/faq/faq.component').then(m => m.FaqComponent)
   },
   {
+    path: 'care-tips',
+    loadComponent: () => import('./pages/care-tips/care-tips.component').then(m => m.CareTipsComponent)
+  },
+  {
+    path: 'care-tips/:slug',
+    loadComponent: () => import('./pages/care-tips/care-tips.component').then(m => m.CareTipsComponent)
+  },
+  {
     path: '**',
     redirectTo: ''
   }

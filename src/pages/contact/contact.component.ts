@@ -181,6 +181,111 @@ import { Title, Meta } from "@angular/platform-browser";
                     </div>
                   </div>
                 </div>
+
+                <!-- Prominent Social Media & WhatsApp Channel Section -->
+                <div class="pt-6 border-t border-slate-800">
+                  <div class="flex items-center justify-between mb-4">
+                    <span class="text-xs font-bold text-teal-400 uppercase tracking-wider">
+                      Follow & Connect With Us
+                    </span>
+                    <span class="text-[11px] text-slate-400">
+                      Stay updated
+                    </span>
+                  </div>
+
+                  <!-- WhatsApp Channel Featured Banner -->
+                  <a
+                    href="https://whatsapp.com/channel/dummy-whitecrest-dental"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="group flex items-center justify-between p-4 mb-4 rounded-2xl bg-gradient-to-r from-emerald-600/30 to-teal-600/20 hover:from-emerald-600/40 hover:to-teal-600/30 border border-emerald-500/40 shadow-sm transition-all duration-200"
+                  >
+                    <div class="flex items-center gap-3.5">
+                      <div class="w-11 h-11 rounded-xl bg-[#25D366] text-white flex items-center justify-center shadow-md flex-shrink-0">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 3.66C14.25 3.66 16.31 4.51 17.87 6.07C19.42 7.63 20.28 9.7 20.28 11.91C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.66 12.05 3.66ZM9.53 7.8C9.28 7.8 8.87 7.89 8.65 8.13C8.43 8.37 7.8 8.96 7.8 10.16C7.8 11.36 8.68 12.53 8.8 12.69C8.93 12.86 10.53 15.32 12.98 16.38C13.56 16.63 14.02 16.78 14.37 16.9C14.93 17.07 15.45 17.05 15.86 17C16.32 16.93 17.28 16.42 17.48 15.86C17.68 15.29 17.68 14.81 17.62 14.71C17.56 14.6 17.41 14.54 17.11 14.39C16.81 14.24 15.34 13.51 15.06 13.41C14.79 13.31 14.59 13.26 14.39 13.56C14.19 13.86 13.62 14.54 13.44 14.74C13.27 14.94 13.09 14.97 12.79 14.82C12.49 14.67 11.53 14.36 10.39 13.34C9.51 12.56 8.91 11.59 8.74 11.29C8.57 10.99 8.72 10.83 8.87 10.68C9 10.55 9.16 10.33 9.31 10.16C9.46 9.99 9.51 9.87 9.61 9.67C9.71 9.47 9.66 9.3 9.58 9.14C9.51 8.97 8.93 7.55 8.69 6.96C8.45 6.4 8.21 6.47 8.04 6.48C7.88 6.48 7.7 6.48 7.51 6.48L9.53 7.8Z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <div class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors flex items-center gap-2">
+                          <span>Follow WhatsApp Channel</span>
+                          <span class="text-[10px] uppercase font-bold bg-emerald-500/30 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/30">Official</span>
+                        </div>
+                        <p class="text-xs text-slate-300 mt-0.5">Dental tips, updates & health alerts</p>
+                      </div>
+                    </div>
+                    <span class="text-emerald-400 group-hover:translate-x-1 transition-transform font-bold text-base flex items-center">
+                      Follow →
+                    </span>
+                  </a>
+
+                  <!-- Prominent Social Media Cards: Instagram, Facebook, YouTube, LinkedIn -->
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <!-- Instagram -->
+                    <a
+                      href="https://instagram.com/dummy-whitecrest-dental"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 hover:bg-gradient-to-tr hover:from-amber-500/20 hover:via-rose-500/20 hover:to-purple-500/20 border border-white/10 hover:border-rose-400/50 transition-all duration-200 group hover:-translate-y-0.5"
+                    >
+                      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center mb-2 shadow-sm">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                      </div>
+                      <span class="text-xs font-bold text-slate-200 group-hover:text-white transition-colors">Instagram</span>
+                      <span class="text-[10px] text-slate-400 mt-0.5">&#64;whitecrest</span>
+                    </a>
+
+                    <!-- Facebook -->
+                    <a
+                      href="https://facebook.com/dummy-whitecrest-dental"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 hover:bg-blue-600/20 border border-white/10 hover:border-blue-500/50 transition-all duration-200 group hover:-translate-y-0.5"
+                    >
+                      <div class="w-9 h-9 rounded-xl bg-[#1877F2] text-white flex items-center justify-center mb-2 shadow-sm">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                      </div>
+                      <span class="text-xs font-bold text-slate-200 group-hover:text-white transition-colors">Facebook</span>
+                      <span class="text-[10px] text-slate-400 mt-0.5">WhiteCrest</span>
+                    </a>
+
+                    <!-- YouTube -->
+                    <a
+                      href="https://youtube.com/@dummy-whitecrest-dental"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 hover:bg-red-600/20 border border-white/10 hover:border-red-500/50 transition-all duration-200 group hover:-translate-y-0.5"
+                    >
+                      <div class="w-9 h-9 rounded-xl bg-[#FF0000] text-white flex items-center justify-center mb-2 shadow-sm">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                      </div>
+                      <span class="text-xs font-bold text-slate-200 group-hover:text-white transition-colors">YouTube</span>
+                      <span class="text-[10px] text-slate-400 mt-0.5">Channel</span>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a
+                      href="https://linkedin.com/company/dummy-whitecrest-dental"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 hover:bg-sky-600/20 border border-white/10 hover:border-sky-500/50 transition-all duration-200 group hover:-translate-y-0.5"
+                    >
+                      <div class="w-9 h-9 rounded-xl bg-[#0A66C2] text-white flex items-center justify-center mb-2 shadow-sm">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                      </div>
+                      <span class="text-xs font-bold text-slate-200 group-hover:text-white transition-colors">LinkedIn</span>
+                      <span class="text-[10px] text-slate-400 mt-0.5">Company</span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -262,7 +367,7 @@ import { Title, Meta } from "@angular/platform-browser";
                     formControlName="name"
                     id="name"
                     class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all"
-                    placeholder="John Doe"
+                    placeholder="Aarav Sharma"
                   />
                   @if (
                     contactForm.get("name")?.touched &&
@@ -287,7 +392,7 @@ import { Title, Meta } from "@angular/platform-browser";
                       formControlName="email"
                       id="email"
                       class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all"
-                      placeholder="john@example.com"
+                      placeholder="aarav.sharma@example.com"
                     />
                     @if (
                       contactForm.get("email")?.touched &&
@@ -309,7 +414,7 @@ import { Title, Meta } from "@angular/platform-browser";
                       formControlName="phone"
                       id="phone"
                       class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all"
-                      placeholder="(555) 000-0000"
+                      placeholder="+91 98765 43210"
                     />
                     @if (
                       contactForm.get("phone")?.touched &&
