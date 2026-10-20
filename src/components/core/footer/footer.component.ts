@@ -36,6 +36,7 @@ import { RouterLink } from '@angular/router';
               <li><a routerLink="/services" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Our Services</a></li>
               <li><a routerLink="/gallery" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Transformation Gallery</a></li>
               <li><a routerLink="/faq" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">FAQ</a></li>
+              <li><a routerLink="/care-tips" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Care Tips</a></li>
               <li><a routerLink="/contact" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Book Appointment</a></li>
             </ul>
           </div>
