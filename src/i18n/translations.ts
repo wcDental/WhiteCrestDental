@@ -1,0 +1,351 @@
+export type Language = 'en' | 'hi';
+
+export type TranslationKey = keyof typeof TRANSLATIONS['en'];
+
+export const TRANSLATIONS = {
+  en: {
+    // Navigation
+    home: 'Home',
+    services: 'Services',
+    gallery: 'Transformation Gallery',
+    contact: 'Contact',
+    faq: 'FAQ',
+    careTips: 'Care Tips',
+    bookNow: 'Book Now',
+    bookAppointment: 'Book Appointment',
+
+    // Footer
+    quickLinks: 'Quick Links',
+    visitUs: 'Visit Us',
+    addressLine1: '123 Complex Building, Expressway',
+    addressLine2: 'Noida, UP 90210',
+    bio: 'Providing world-class dental care with a focus on comfort, technology, and long-term oral health. Your smile is our passion.',
+    rights: 'White Crest Dental. All rights reserved.',
+
+    // Hero Section
+    acceptingPatients: 'Accepting New Patients',
+    heroTitleLine1: 'Precision Care.',
+    heroTitleLine2: 'Painless Dentistry.',
+    heroDesc: 'White Crest Dental brings you a modern, calming experience that leaves your teeth healthy and your soul rejuvenated.',
+    ourServices: 'Our Services',
+    lovedBy: 'Loved by 2,000+ locals',
+
+    // Features / Values
+    featuresHeading: 'A trip to the dentist should be a source of serenity',
+    featuresSub: "Here's how White Crest Dental delivers a patient experience like no other.",
+    transparentPricing: 'Transparent Pricing',
+    transparentPricingDesc: 'Expect full transparency on every treatment from start to finish. No hidden fees, ever.',
+    anxietyFree: 'Anxiety-Free',
+    anxietyFreeDesc: 'Designed by experts to serve as an oasis of calm. Watch Netflix or listen to music while we work.',
+    modernDentistry: 'Modern Dentistry',
+    modernDentistryDesc: 'From digital X-rays to 3D scanning, we use the latest tech for precise, comfortable treatments.',
+
+    // Meet The Doctor
+    founderTitle: 'Founder & Dentist',
+    doctorName: 'Dr. Kritima Tripathi',
+    doctorBio: 'With over 11 years of experience, Dr. Kritima Tripathi redefines dentistry as a carefully crafted experience rooted in precision and uncompromising quality. Known for her gentle, pain-free approach, she transforms complex treatments into calm, reassuring sessions. Her practice prioritizes clinical excellence, delivering personalized, aesthetically refined results in a serene environment where every patient feels truly cared for.',
+    reviewsBadge: 'Google Reviews',
+    happyPatients: 'Happy Patients',
+    expertiseTitle: 'Expertise',
+    expertiseDesc: '11+ years delivering gentle, comprehensive cosmetic & restorative dental treatments.',
+    specialityTitle: 'Speciality',
+    specialityDesc: 'Painless Treatment',
+    experienceTitle: 'Experience',
+    experienceDesc: '11+ Years Practicing',
+    consultNow: 'Consult Now',
+    comfortTitle: 'Patient Comfort First',
+    comfortDesc: 'A calm, welcoming clinical environment designed to alleviate dental anxiety.',
+    technologyTitle: 'Advanced Technology',
+    technologyDesc: 'Modern digital diagnostic tools for precise, predictable, long-lasting outcomes.',
+
+    // Before/After
+    previewHeading: 'Real Patients, Real Smiles',
+    previewSub: 'See the life-changing results of our cosmetic and restorative treatments.',
+    before: 'BEFORE',
+    after: 'AFTER',
+    viewFullGallery: 'View Full Smile Gallery',
+
+    // Services Page
+    servicesTitle: 'Dental Services Reimagined',
+    servicesSub: 'From routine hygiene to complex full-mouth restoration, we combine artistry with advanced technology to deliver exceptional results.',
+    comprehensiveSolutions: 'Comprehensive Solutions',
+    searchPlaceholder: "Search treatments (e.g., 'Veneers', 'Implants', 'Root Canal')...",
+    viewDetails: 'View Details',
+    noServicesFound: 'No services found',
+    adjustSearch: 'Try adjusting your search terms or view all services.',
+    clearSearch: 'Clear search',
+    generalDentistry: 'General Dentistry & Preventative Care',
+    generalDentistryDesc: 'Foundation is everything. Our preventative program is designed to stop problems before they start, ensuring your smile lasts a lifetime.',
+    comprehensiveExams: 'Comprehensive Exams',
+    comprehensiveExamsDesc: 'Digital x-rays, oral cancer screening, and gum health evaluation.',
+    hygieneCleaning: 'Hygiene & Cleaning',
+    hygieneCleaningDesc: 'Gentle ultrasonic cleaning to remove plaque and tartar build-up.',
+    emergencyCare: 'Emergency Care',
+    emergencyCareDesc: 'Same-day appointments for pain relief and urgent repairs.',
+    readyToPrioritize: 'Ready to prioritize your health?',
+    readyToPrioritizeSub: 'Book your consultation today and experience the difference.',
+    scheduleAppointment: 'Schedule Appointment',
+
+    // Gallery Page
+    galleryTitle: 'Smile Transformations Gallery',
+    gallerySub: 'Browse our collection of real patient stories. Witness the life-changing power of modern dentistry.',
+    searchGalleryPlaceholder: "Search treatments (e.g., 'Veneers', 'Implants', 'Whitening')...",
+
+    // Contact Page
+    contactTitle: 'Get in Touch',
+    contactSubtitle: 'Schedule your consultation or ask any questions. We are here to help you smile with confidence.',
+    ourOffice: 'Our Office',
+    phoneLabel: 'Phone',
+    callUsAnytime: 'Call us anytime',
+    emailLabel: 'Email',
+    officeHours: 'Office Hours',
+    followConnect: 'Follow & Connect With Us',
+    stayUpdated: 'Stay updated',
+    followWhatsApp: 'Follow WhatsApp Channel',
+    official: 'Official',
+    whatsappDesc: 'Dental tips, updates & health alerts',
+    followArrow: 'Follow →',
+    bookConsultation: 'Book a Consultation',
+    fillFormDesc: 'Fill out the form below and our team will get back to you within 24 hours.',
+    fullName: 'Full Name',
+    phoneNumber: 'Phone Number',
+    emailAddress: 'Email Address',
+    preferredDate: 'Preferred Date',
+    preferredTime: 'Preferred Time',
+    reasonForVisit: 'Reason for Visit',
+    selectReason: 'Select a service / reason',
+    additionalNotes: 'Additional Notes (Optional)',
+    notesPlaceholder: 'Please describe any symptoms, concerns, or special requests...',
+    sendRequest: 'Send Appointment Request',
+    submitting: 'Submitting...',
+    successMsg: 'Thank you! Your appointment request has been submitted. We will contact you shortly to confirm.',
+    selectDateMsg: 'Please select a date',
+    selectTimeMsg: 'Please select a time',
+    selectReasonMsg: 'Please select a reason for visit',
+
+    // FAQ Page
+    faqTitle: 'Frequently Asked Questions',
+    faqSubtitle: 'Find answers to common questions about dental care, appointments, and treatments at White Crest Dental.',
+
+    // Care Tips Page
+    careTipsTitle: 'Care Tips & Dental Health Guide',
+    careTipsSub: 'Expert advice, prevention tips, and practical guides from Dr. Kritima Tripathi and the White Crest Dental team to help you protect your smile.',
+    careTipsHub: 'Care Tips Hub',
+    readFullGuide: 'Read Full Guide →',
+    dentalHealthGuide: 'Dental Health Guide',
+    backToGuides: '← Back to Care Tips Guides',
+    publishedBy: 'Published by White Crest Dental Studio • Clinical Care Guide',
+    haveQuestions: 'Have Questions About Your Dental Health?',
+    scheduleConsultationCTA: 'Schedule a consultation with Dr. Kritima Tripathi to discuss personalized treatment and care.',
+
+    // Expertise Showcase
+    ourExpertise: 'Our Expertise',
+    expertiseHeading: 'Comprehensive Dental Solutions',
+    expertiseSub: 'From routine maintenance to complex restoration, our specialists are equipped with the skills and technology to handle all your dental needs under one roof.',
+    learnMore: 'Learn More',
+
+    // Contact Form extras
+    contactInfo: 'Contact Information',
+    sendUsMessage: 'Send us a Message',
+    requestReceived: 'Request Received!',
+    sendAnotherMessage: 'Send another message',
+    nameRequired: 'Name is required',
+    optional: '(Optional)',
+    invalidEmail: 'Please enter a valid email address',
+    phoneRequired: 'Phone is required',
+    preferredDateTime: 'Preferred Date & Time',
+    howCanWeHelp: 'How can we help?',
+    helpPlaceholder: 'I would like to book a cleaning...',
+    messageRequired: 'Message is required',
+    securityCheck: 'Security Check: What is',
+    refreshChallenge: 'Refresh Challenge',
+    incorrectCaptcha: 'Incorrect answer. Please try again.',
+    findUsOnMaps: '📍 Find us on Maps',
+    sending: 'Sending...',
+    sendMessage: 'Send Message',
+
+    // FAQ extras
+    commonQuestions: 'Common Questions',
+    faqSearchPlaceholder: "Search for answers (e.g. 'root canal', 'insurance')...",
+    noFaqFound: 'No matching questions found.',
+    stillHaveQuestions: 'Still have questions?',
+    stillHaveQuestionsSub: "Can't find the answer you're looking for? Please contact our friendly team.",
+
+    // General / Actions
+    backToHome: '← Back to Home',
+    allServices: 'All Services'
+  },
+
+  hi: {
+    // Navigation
+    home: 'होम',
+    services: 'सेवाएं',
+    gallery: 'स्माइल गैलरी',
+    contact: 'संपर्क करें',
+    faq: 'एफएक्यू',
+    careTips: 'केयर टिप्स',
+    bookNow: 'अपॉइंटमेंट लें',
+    bookAppointment: 'अपॉइंटमेंट बुक करें',
+
+    // Footer
+    quickLinks: 'त्वरित लिंक',
+    visitUs: 'हमारा पता',
+    addressLine1: '123, कॉम्प्लेक्स बिल्डिंग, एक्सप्रेसवे',
+    addressLine2: 'नोएडा, उत्तर प्रदेश 90210',
+    bio: 'विश्वस्तरीय दंत चिकित्सा, अत्याधुनिक तकनीक और दर्द रहित उपचार। आपकी स्वस्थ और सुंदर मुस्कान ही हमारा उद्देश्य है।',
+    rights: 'व्हाइट क्रेस्ट डेंटल। सर्वाधिकार सुरक्षित।',
+
+    // Hero Section
+    acceptingPatients: 'नए मरीजों का स्वागत है',
+    heroTitleLine1: 'सटीक देखभाल।',
+    heroTitleLine2: 'दर्द रहित दंत चिकित्सा।',
+    heroDesc: 'व्हाइट क्रेस्ट डेंटल में पाएं आधुनिक, शांत और आरामदायक माहौल, जो आपके दांतों को स्वस्थ और चेहरे को मुस्कुराता हुआ बनाए।',
+    ourServices: 'हमारी सेवाएं',
+    lovedBy: '2,000+ स्थानीय मरीजों का भरोसा',
+
+    // Features / Values
+    featuresHeading: 'डेंटिस्ट के पास जाना अब तनाव नहीं, एक आरामदायक अनुभव है',
+    featuresSub: 'जानिए व्हाइट क्रेस्ट डेंटल आपको कैसे देता है सबसे बेहतरीन और भरोसेमंद अनुभव।',
+    transparentPricing: 'पारदर्शी शुल्क (नो हिडन चार्ज)',
+    transparentPricingDesc: 'इलाज के शुरू से अंत तक हर प्रक्रिया में पूरी पारदर्शिता। कोई छुपा हुआ खर्च नहीं।',
+    anxietyFree: 'तनाव और डर से मुक्त',
+    anxietyFreeDesc: 'आरामदायक और शांत क्लिनिक वातावरण। इलाज के दौरान संगीत सुनें या आराम करें।',
+    modernDentistry: 'आधुनिक दंत तकनीक',
+    modernDentistryDesc: 'डिजिटल एक्स-रे से लेकर 3D स्कैनिंग तक, हर इलाज में नवीनतम तकनीक का उपयोग।',
+
+    // Meet The Doctor
+    founderTitle: 'संस्थापक एवं मुख्य दंत चिकित्सक',
+    doctorName: 'डॉ. कृतिमा त्रिपाठी',
+    doctorBio: '11 से अधिक वर्षों के अनुभव के साथ, डॉ. कृतिमा त्रिपाठी दंत चिकित्सा को एक सटीक, उच्च गुणवत्ता और आरामदायक अनुभव के रूप में प्रस्तुत करती हैं। अपने सौम्य और दर्द रहित दृष्टिकोण के लिए जानी जाने वाली डॉ. त्रिपाठी जटिल से जटिल उपचार को भी सहज बना देती हैं। उनका उद्देश्य हर मरीज को एक शांत वातावरण में व्यक्तिगत और उत्कृष्ट दंत सेवा प्रदान करना है।',
+    reviewsBadge: 'गूगल समीक्षाएं',
+    happyPatients: 'संतुष्ट मरीज',
+    expertiseTitle: 'विशेषज्ञता',
+    expertiseDesc: '11+ वर्षों से कॉस्मेटिक और रिस्टोरेटिव दंत चिकित्सा में विशेषज्ञता।',
+    specialityTitle: 'विशेषता',
+    specialityDesc: 'दर्द रहित आरामदायक उपचार',
+    experienceTitle: 'अनुभव',
+    experienceDesc: '11+ वर्षों का सफल अनुभव',
+    consultNow: 'परामर्श लें',
+    comfortTitle: 'मरीज का आराम सर्वोपरि',
+    comfortDesc: 'दांतों के इलाज के डर और तनाव को दूर करने वाला शांत क्लिनिकल माहौल।',
+    technologyTitle: 'अत्याधुनिक क्लिनिकल तकनीक',
+    technologyDesc: 'सटीक जांच और स्थायी परिणामों के लिए अत्याधुनिक डिजिटल उपकरण।',
+
+    // Before/After
+    previewHeading: 'सच्चे मरीज, असली मुस्कान',
+    previewSub: 'हमारे कॉस्मेटिक और रिस्टोरेटिव उपचार के बेहतरीन परिणाम देखें।',
+    before: 'पहले',
+    after: 'बाद में',
+    viewFullGallery: 'पूरी स्माइल गैलरी देखें',
+
+    // Services Page
+    servicesTitle: 'दंत चिकित्सा का नया और आधुनिक अनुभव',
+    servicesSub: 'नियमित सफाई से लेकर संपूर्ण मुंह के रिहैबिलिटेशन तक, हम बेहतरीन परिणामों के लिए आधुनिक तकनीक और विशेषज्ञता का संगम लाते हैं।',
+    comprehensiveSolutions: 'संपूर्ण समाधान',
+    searchPlaceholder: "उपचार खोजें (जैसे 'रूट कैनाल', 'इम्प्लांट', 'सफाई')...",
+    viewDetails: 'विस्तार से जानें',
+    noServicesFound: 'कोई सेवा नहीं मिली',
+    adjustSearch: 'खोज शब्द बदलकर देखें या सभी सेवाएं देखें।',
+    clearSearch: 'सर्च हटाएं',
+    generalDentistry: 'सामान्य दंत चिकित्सा और निवारक देखभाल',
+    generalDentistryDesc: 'दांतों की नींव मजबूत होना जरूरी है। हमारा प्रिवेंटिव केयर प्रोग्राम समस्याओं को शुरू होने से पहले ही रोक देता है।',
+    comprehensiveExams: 'पूरी जांच व डिजिटल एक्स-रे',
+    comprehensiveExamsDesc: 'डिजिटल एक्स-रे, ओरल स्क्रीनिंग और मसूड़ों की सम्पूर्ण जांच।',
+    hygieneCleaning: 'दांतों की स्वच्छता व सफाई',
+    hygieneCleaningDesc: 'प्लाक और टार्टर हटाने के लिए सौम्य अल्ट्रासोनिक क्लीनिंग।',
+    emergencyCare: 'आपातकालीन देखभाल',
+    emergencyCareDesc: 'दांत दर्द से तुरंत राहत और जरूरी उपचार के लिए उसी दिन अपॉइंटमेंट।',
+    readyToPrioritize: 'क्या आप अपने दांतों को स्वस्थ बनाना चाहते हैं?',
+    readyToPrioritizeSub: 'आज ही अपना परामर्श बुक करें और अंतर महसूस करें।',
+    scheduleAppointment: 'अपॉइंटमेंट तय करें',
+
+    // Gallery Page
+    galleryTitle: 'स्माइल ट्रांसफॉर्मेशन गैलरी',
+    gallerySub: 'हमारे मरीजों की वास्तविक कहानियों और परिणामों को देखें। आधुनिक दंत चिकित्सा की शक्ति का अनुभव करें।',
+    searchGalleryPlaceholder: "उपचार खोजें (जैसे 'इम्प्लांट', 'व्हाइटनिंग')...",
+
+    // Contact Page
+    contactTitle: 'हमसे संपर्क करें',
+    contactSubtitle: 'अपना परामर्श तय करें या कोई भी सवाल पूछें। हम आपकी स्वस्थ और सुंदर मुस्कान के लिए सदैव तत्पर हैं।',
+    ourOffice: 'हमारा क्लिनिक',
+    phoneLabel: 'फ़ोन',
+    callUsAnytime: 'कभी भी कॉल करें',
+    emailLabel: 'ईमेल',
+    officeHours: 'क्लिनिक का समय',
+    followConnect: 'हमसे जुड़ें व फॉलो करें',
+    stayUpdated: 'अपडेटेड रहें',
+    followWhatsApp: 'व्हाट्सएप चैनल फॉलो करें',
+    official: 'ऑफिशियल',
+    whatsappDesc: 'दांतों की देखभाल के टिप्स और स्वास्थ्य अपडेट',
+    followArrow: 'फॉलो करें →',
+    bookConsultation: 'परामर्श बुक करें',
+    fillFormDesc: 'नीचे दिया गया फॉर्म भरें, हमारी टीम 24 घंटे के भीतर आपसे संपर्क करेगी।',
+    fullName: 'पूरा नाम',
+    phoneNumber: 'फ़ोन नंबर',
+    emailAddress: 'ईमेल पता',
+    preferredDate: 'पसंदीदा तारीख',
+    preferredTime: 'पसंदीदा समय',
+    reasonForVisit: 'आने का कारण / समस्या',
+    selectReason: 'एक सेवा या कारण चुनें',
+    additionalNotes: 'अन्य विवरण (वैकल्पिक)',
+    notesPlaceholder: 'अपने लक्षण, समस्या या कोई विशेष अनुरोध लिखें...',
+    sendRequest: 'अपॉइंटमेंट अनुरोध भेजें',
+    submitting: 'भेजा जा रहा है...',
+    successMsg: 'धन्यवाद! आपका अपॉइंटमेंट अनुरोध प्राप्त हो गया है। हम जल्द ही आपसे संपर्क करेंगे।',
+    selectDateMsg: 'कृपया एक तारीख चुनें',
+    selectTimeMsg: 'कृपया एक समय चुनें',
+    selectReasonMsg: 'कृपया आने का कारण चुनें',
+
+    // FAQ Page
+    faqTitle: 'अक्सर पूछे जाने वाले सवाल',
+    faqSubtitle: 'व्हाइट क्रेस्ट डेंटल में उपचार, अपॉइंटमेंट और दांतों की देखभाल से जुड़े आम सवालों के प्रामाणिक जवाब।',
+
+    // Care Tips Page
+    careTipsTitle: 'दांतों की देखभाल और हेल्थ गाइड',
+    careTipsSub: 'डॉ. कृतिमा त्रिपाठी और व्हाइट क्रेस्ट डेंटल टीम द्वारा तैयार की गई विशेषज्ञ सलाह, ताकि आपकी मुस्कान हमेशा स्वस्थ रहे।',
+    careTipsHub: 'केयर टिप्स हब',
+    readFullGuide: 'पूरा लेख पढ़ें →',
+    dentalHealthGuide: 'डेंटल हेल्थ गाइड',
+    backToGuides: '← सभी केयर टिप्स पर वापस जाएं',
+    publishedBy: 'व्हाइट क्रेस्ट डेंटल स्टूडियो द्वारा प्रकाशित • क्लिनिकल केयर गाइड',
+    haveQuestions: 'दांतों की सेहत को लेकर कोई सवाल है?',
+    scheduleConsultationCTA: 'डॉ. कृतिमा त्रिपाठी से व्यक्तिगत परामर्श और जांच के लिए आज ही संपर्क करें।',
+
+    // Expertise Showcase
+    ourExpertise: 'हमारी विशेषज्ञता',
+    expertiseHeading: 'व्यापक दंत चिकित्सा समाधान',
+    expertiseSub: 'नियमित सफाई से लेकर जटिल फुल-माउथ रेस्टोरेशन तक, हमारे विशेषज्ञ आधुनिक तकनीक के साथ आपकी हर दंत समस्या का समाधान एक ही छत के नीचे करते हैं।',
+    learnMore: 'और जानें',
+
+    // Contact Form extras
+    contactInfo: 'संपर्क जानकारी',
+    sendUsMessage: 'हमें संदेश भेजें',
+    requestReceived: 'अनुरोध प्राप्त हुआ!',
+    sendAnotherMessage: 'दूसरा संदेश भेजें',
+    nameRequired: 'नाम दर्ज करना अनिवार्य है',
+    optional: '(वैकल्पिक)',
+    invalidEmail: 'कृपया एक वैध ईमेल पता दर्ज करें',
+    phoneRequired: 'फ़ोन नंबर अनिवार्य है',
+    preferredDateTime: 'पसंदीदा तारीख और समय',
+    howCanWeHelp: 'हम आपकी क्या मदद कर सकते हैं?',
+    helpPlaceholder: 'उदाहरण: मुझे दांतों की जांच और सफाई के लिए समय चाहिए...',
+    messageRequired: 'संदेश लिखना अनिवार्य है',
+    securityCheck: 'सुरक्षा जांच: बताइए',
+    refreshChallenge: 'नया सवाल पूछें',
+    incorrectCaptcha: 'गलत उत्तर। कृपया पुनः प्रयास करें।',
+    findUsOnMaps: '📍 गूगल मैप्स पर देखें',
+    sending: 'भेजा जा रहा है...',
+    sendMessage: 'संदेश भेजें',
+
+    // FAQ extras
+    commonQuestions: 'सामान्य प्रश्न',
+    faqSearchPlaceholder: "उत्तर खोजें (जैसे 'रूट कैनाल', 'इम्प्लांट', 'सफाई')...",
+    noFaqFound: 'कोई मेल खाते प्रश्न नहीं मिले।',
+    stillHaveQuestions: 'क्या आपका कोई और सवाल है?',
+    stillHaveQuestionsSub: 'अगर आपको अपने सवाल का जवाब नहीं मिला, तो हमारी टीम से सीधे संपर्क करें।',
+
+    // General / Actions
+    backToHome: '← होम पर वापस जाएं',
+    allServices: 'सभी सेवाएं'
+  }
+} as const;

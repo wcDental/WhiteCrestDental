@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
 import { BeforeAfterPreviewComponent } from './before-after-preview/before-after-preview.component';
 import { MeetTheDoctorComponent } from './meet-the-doctor/meet-the-doctor.component';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-home',
@@ -13,28 +14,28 @@ import { MeetTheDoctorComponent } from './meet-the-doctor/meet-the-doctor.compon
   template: `
     <div class="bg-white w-full font-sans">
       <!-- HERO SECTION -->
-      <section class="relative w-full overflow-hidden h-auto lg:h-[calc(100vh-80px)] min-h-[600px] flex flex-col lg:flex-row">
+      <section class="relative w-full overflow-hidden h-auto lg:h-[calc(100vh-80px)] lg:min-h-[600px] flex flex-col lg:flex-row">
         
         <!-- Left Content: Static Text -->
         <div class="w-full lg:w-1/2 flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-32 py-16 lg:py-0 bg-white z-10">
           <div class="max-w-xl animate-fade-in-up mt-8 lg:mt-0">
              <div class="mb-6 inline-block">
                <span class="py-2 px-4 rounded-full bg-teal-50 text-teal-800 text-xs font-bold tracking-widest uppercase border border-teal-100">
-                 Accepting New Patients
+                 {{ langService.t('acceptingPatients') }}
                </span>
              </div>
              <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-slate-900 leading-[1.1] mb-6 tracking-tight">
-               Precision Care. <br/> <span class="text-teal-600 italic">Painless Dentistry.</span>
+               {{ langService.t('heroTitleLine1') }} <br/> <span class="text-teal-600 italic">{{ langService.t('heroTitleLine2') }}</span>
              </h1>
              <p class="text-lg text-slate-500 leading-relaxed mb-8 max-w-md">
-               White Crest Dental brings you a modern, calming experience that leaves your teeth healthy and your soul rejuvenated.
+               {{ langService.t('heroDesc') }}
              </p>
              <div class="flex flex-wrap gap-4">
                <a routerLink="/contact" class="px-8 py-4 bg-slate-900 text-white rounded-full font-medium hover:bg-teal-700 transition-all duration-300 shadow-lg hover:shadow-teal-500/30 transform hover:-translate-y-1 text-center">
-                 Book Appointment
+                 {{ langService.t('bookAppointment') }}
                </a>
                <a routerLink="/services" class="px-8 py-4 bg-white border border-slate-200 text-slate-800 rounded-full font-medium hover:bg-slate-50 transition-all duration-300 text-center">
-                 Our Services
+                 {{ langService.t('ourServices') }}
                </a>
              </div>
              
@@ -44,13 +45,13 @@ import { MeetTheDoctorComponent } from './meet-the-doctor/meet-the-doctor.compon
                    <img src="https://picsum.photos/seed/p2/60/60" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Patient">
                    <img src="https://picsum.photos/seed/p3/60/60" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Patient">
                 </div>
-                <span>Loved by 2,000+ locals</span>
+                <span>{{ langService.t('lovedBy') }}</span>
              </div>
           </div>
         </div>
 
-        <!-- Right Content: Infinite Vertical Marquee -->
-        <div class="w-full lg:w-1/2 h-[600px] lg:h-full bg-white relative overflow-hidden">
+        <!-- Right Content: Infinite Vertical Marquee (Hidden on mobile, visible on lg screens) -->
+        <div class="hidden lg:block lg:w-1/2 lg:h-full bg-white relative overflow-hidden">
            <!-- Gradient Overlays for smooth fade out at edges -->
            <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none"></div>
            <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none"></div>
@@ -88,25 +89,25 @@ import { MeetTheDoctorComponent } from './meet-the-doctor/meet-the-doctor.compon
       <!-- FEATURES SECTION (General Values) -->
       <section class="py-24 px-6 md:px-12 lg:px-20 bg-white">
         <div class="max-w-7xl mx-auto text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mb-4">A trip to the dentist should be a source of serenity</h2>
-          <p class="text-slate-500 max-w-2xl mx-auto text-lg">Here's how White Crest Dental delivers a patient experience like no other.</p>
+          <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mb-4">{{ langService.t('featuresHeading') }}</h2>
+          <p class="text-slate-500 max-w-2xl mx-auto text-lg">{{ langService.t('featuresSub') }}</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
            <div class="flex flex-col items-center text-center p-6 rounded-3xl hover:bg-slate-50 transition-colors duration-300">
               <div class="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center text-3xl mb-6 text-teal-600 shadow-sm">✨</div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3">Transparent Pricing</h3>
-              <p class="text-slate-500 leading-relaxed">Expect full transparency on every treatment from start to finish. No hidden fees, ever.</p>
+              <h3 class="text-xl font-bold text-slate-900 mb-3">{{ langService.t('transparentPricing') }}</h3>
+              <p class="text-slate-500 leading-relaxed">{{ langService.t('transparentPricingDesc') }}</p>
            </div>
            <div class="flex flex-col items-center text-center p-6 rounded-3xl hover:bg-slate-50 transition-colors duration-300">
               <div class="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center text-3xl mb-6 text-teal-600 shadow-sm">🧘</div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3">Anxiety-Free</h3>
-              <p class="text-slate-500 leading-relaxed">Designed by experts to serve as an oasis of calm. Watch Netflix or listen to music while we work.</p>
+              <h3 class="text-xl font-bold text-slate-900 mb-3">{{ langService.t('anxietyFree') }}</h3>
+              <p class="text-slate-500 leading-relaxed">{{ langService.t('anxietyFreeDesc') }}</p>
            </div>
            <div class="flex flex-col items-center text-center p-6 rounded-3xl hover:bg-slate-50 transition-colors duration-300">
               <div class="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center text-3xl mb-6 text-teal-600 shadow-sm">🦷</div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3">Modern Dentistry</h3>
-              <p class="text-slate-500 leading-relaxed">From digital X-rays to 3D scanning, we use the latest tech for precise, comfortable treatments.</p>
+              <h3 class="text-xl font-bold text-slate-900 mb-3">{{ langService.t('modernDentistry') }}</h3>
+              <p class="text-slate-500 leading-relaxed">{{ langService.t('modernDentistryDesc') }}</p>
            </div>
         </div>
       </section>
@@ -145,6 +146,7 @@ import { MeetTheDoctorComponent } from './meet-the-doctor/meet-the-doctor.compon
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
+  langService = inject(LanguageService);
   private title: Title = inject(Title);
   private meta: Meta = inject(Meta);
 

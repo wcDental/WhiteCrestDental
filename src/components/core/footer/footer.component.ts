@@ -1,6 +1,7 @@
 
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'app-footer',
@@ -24,30 +25,30 @@ import { RouterLink } from '@angular/router';
               <span class="font-bold text-xl tracking-tight">White Crest <span class="text-teal-400">Dental</span></span>
             </div>
             <p class="text-slate-400 text-sm leading-relaxed mb-6">
-              Providing world-class dental care with a focus on comfort, technology, and long-term oral health. Your smile is our passion.
+              {{ langService.t('bio') }}
             </p>
           </div>
 
           <!-- Quick Links -->
           <div>
-            <h3 class="text-lg font-semibold mb-4 text-teal-400">Quick Links</h3>
+            <h3 class="text-lg font-semibold mb-4 text-teal-400">{{ langService.t('quickLinks') }}</h3>
             <ul class="space-y-3">
-              <li><a routerLink="/" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Home</a></li>
-              <li><a routerLink="/services" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Our Services</a></li>
-              <li><a routerLink="/gallery" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Transformation Gallery</a></li>
-              <li><a routerLink="/faq" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">FAQ</a></li>
-              <li><a routerLink="/care-tips" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Care Tips</a></li>
-              <li><a routerLink="/contact" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Book Appointment</a></li>
+              <li><a routerLink="/" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">{{ langService.t('home') }}</a></li>
+              <li><a routerLink="/services" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">{{ langService.t('services') }}</a></li>
+              <li><a routerLink="/gallery" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">{{ langService.t('gallery') }}</a></li>
+              <li><a routerLink="/faq" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">{{ langService.t('faq') }}</a></li>
+              <li><a routerLink="/care-tips" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">{{ langService.t('careTips') }}</a></li>
+              <li><a routerLink="/contact" class="text-slate-300 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">{{ langService.t('bookAppointment') }}</a></li>
             </ul>
           </div>
 
           <!-- Contact Info -->
           <div>
-            <h3 class="text-lg font-semibold mb-4 text-teal-400">Visit Us</h3>
+            <h3 class="text-lg font-semibold mb-4 text-teal-400">{{ langService.t('visitUs') }}</h3>
             <ul class="space-y-4 text-sm text-slate-300">
               <li class="flex items-start">
                 <span class="mr-3 mt-1">📍</span>
-                <span>123 Complex Building, Expressway<br>Noida , UP 90210</span>
+                <span>{{ langService.t('addressLine1') }}<br>{{ langService.t('addressLine2') }}</span>
               </li>
               <li class="flex items-center">
                 <span class="mr-3">📞</span>
@@ -62,7 +63,7 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="border-t border-slate-800 mt-12 pt-8 text-center text-slate-500 text-xs">
-          <p>&copy; {{ currentYear }} White Crest Dental. All rights reserved.</p>
+          <p>&copy; {{ currentYear }} {{ langService.t('rights') }}</p>
         </div>
       </div>
     </footer>
@@ -70,5 +71,6 @@ import { RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent {
+  langService = inject(LanguageService);
   currentYear = new Date().getFullYear();
 }

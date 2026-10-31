@@ -1,7 +1,9 @@
 export interface ServiceItem {
   title: string;
+  titleHi?: string;
   slug: string;
   description: string;
+  descriptionHi?: string;
   image: string;
 }
 
@@ -29,146 +31,194 @@ export interface ServiceDetailData {
 export const SERVICES_LIST: ServiceItem[] = [
   {
     title: 'Oral Examination & Investigations',
+    titleHi: 'दांतों व मुंह की सम्पूर्ण जांच (Oral Examination)',
     slug: 'oral-examination',
     description: 'Complete check-up with digital X-rays, gum health evaluations, and personalized oral care advice.',
-    image: 'https://picsum.photos/seed/oralexam/600/400'
+    descriptionHi: 'डिजिटल एक्स-रे, मसूड़ों की सेहत की जांच और व्यक्तिगत परामर्श के साथ संपूर्ण चेक-अप।',
+    image: 'https://plus.unsplash.com/premium_photo-1681966962522-546f370bc98e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D'
   },
   {
     title: 'Cleaning and Polishing',
+    titleHi: 'दांतों की सफाई और पॉलिशिंग (Cleaning & Polishing)',
     slug: 'cleaning-and-polishing',
     description: 'Gentle ultrasonic scaling and polishing to remove plaque, tartar, and surface stains for a fresh smile.',
-    image: 'https://picsum.photos/seed/cleaning/600/400'
+    descriptionHi: 'प्लाक, टार्टर और दाग-धब्बे हटाने के लिए सौम्य अल्ट्रासोनिक स्केलिंग और स्मूद पॉलिशिंग।',
+    image: 'https://media.istockphoto.com/id/512963437/photo/professional-dental-brushing.jpg?s=1024x1024&w=is&k=20&c=owmL4cjHalfL5A48HpWH_r19a-FBLc5g42oipBWfhr8='
   },
   {
     title: 'Fillings & Restorations',
+    titleHi: 'दांतों की फिलिंग व बहाली (Fillings & Restorations)',
     slug: 'fillings-and-restorations',
     description: 'Durable tooth-coloured composite and restorative fillings to repair cavities, fractures, and wear.',
+    descriptionHi: 'कैविटी और टूटे दांतों को ठीक करने के लिए प्राकृतिक दांत के रंग वाली टिकाऊ कम्पोजिट फिलिंग।',
     image: 'https://picsum.photos/seed/fillings/600/400'
   },
   {
     title: 'Extraction and Minor Surgery',
+    titleHi: 'दांत निकालना और माइनर सर्जरी (Extraction & Surgery)',
     slug: 'extraction-and-minor-surgery',
     description: 'Safe, comfortable tooth extractions, wisdom teeth removal, and minor oral surgery with gentle care.',
-    image: 'https://picsum.photos/seed/extraction/600/400'
+    descriptionHi: 'अकल दाढ़ (Wisdom Tooth) और खराब दांतों को सुरक्षित, कोमल और दर्द रहित तरीके से निकालना।',
+    image: 'https://images.unsplash.com/photo-1752842350662-2479127ed490?q=80&w=1200&auto=format&fit=crop'
   },
   {
     title: 'TMJ Disorder',
+    titleHi: 'जबड़े का दर्द व टीएमजे विकार (TMJ Disorder)',
     slug: 'tmj-disorder',
     description: 'Effective relief from jaw pain, clicking, and clenching with custom night guards and non-surgical therapies.',
-    image: 'https://picsum.photos/seed/tmj/600/400'
+    descriptionHi: 'जबड़े में दर्द, क्लिकिंग और दांत पीसने की समस्या से कस्टम नाइट गार्ड व गैर-सर्जिकल राहत।',
+    image: 'https://media.istockphoto.com/id/1254139856/photo/jaw-pain-after-waking-up-or-sleeping-tmj-bruxisum-teeth-grinding.jpg?s=1024x1024&w=is&k=20&c=2UjoPrrVY5MdkoBwkwIyN4fy1bBtdcABGBq0sGfj9HM='
   },
   {
     title: 'Dental Implants',
+    titleHi: 'डेंटल इम्प्लांट (दांत लगाना / Dental Implants)',
     slug: 'dental-implants',
     description: 'Permanent, natural-looking tooth replacements including Single, All-on-4, and TTPHIL immediate loading.',
-    image: 'https://picsum.photos/seed/implants/600/400'
+    descriptionHi: 'खोए हुए दांतों की जगह असली जैसे मजबूत, स्थायी और प्राकृतिक दिखने वाले नए दांत।',
+    image: 'https://images.unsplash.com/photo-1787303856266-8c4f0b61ecf1?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D'
   },
   {
     title: 'Root Canal Treatment (RCT)',
+    titleHi: 'रूट कैनाल ट्रीटमेंट (Root Canal Treatment - RCT)',
     slug: 'root-canals',
     description: 'Painless, modern therapy to eliminate infection, relieve toothache, and save your natural tooth.',
-    image: 'https://picsum.photos/seed/rootcanal/600/400'
+    descriptionHi: 'बिना दर्द के संक्रमण खत्म करने, दांत दर्द से राहत पाने और असली दांत बचाने का आधुनिक इलाज।',
+    image: 'https://media.istockphoto.com/id/1203755206/photo/tooth-treatment-in-dentistry-the-mouth-is-covered-with-a-blue-rubber-pad.jpg?s=1024x1024&w=is&k=20&c=fiUK6Xb1uZEcwSXgPIOMpI-CSiCm4EupAkl5rfMVcyE='
   },
   {
     title: 'Endodontic Surgical Procedures',
+    titleHi: 'एडवांस्ड एंडोडॉन्टिक सर्जरी (Endodontic Surgery)',
     slug: 'endodontic-surgery',
     description: 'Advanced surgical care including apicoectomy, hemisection, and abscess drainage to save infected teeth.',
+    descriptionHi: 'गंभीर संक्रमण से प्रभावित दांतों को बचाने के लिए एपिकोएक्टॉमी और फोड़े की निकासी की उन्नत सर्जरी।',
     image: 'https://picsum.photos/seed/endosurgery/600/400'
   },
   {
     title: 'Oral Maxillofacial Prosthesis',
+    titleHi: 'मैक्सिलोफेशियल प्रोस्थेसिस (Maxillofacial Prosthesis)',
     slug: 'oral-maxillofacial-prosthesis',
     description: 'Comprehensive prosthodontic reconstructions, obturators, and customized tooth replacement solutions.',
+    descriptionHi: 'जटिल चेहरे और जबड़े के पुनर्निर्माण के लिए विशेष ऑब्ट्यूरेटर और कस्टमाइज्ड कृत्रिम समाधान।',
     image: 'https://picsum.photos/seed/maxillofacial/600/400'
   },
   {
     title: 'Dental Veneers',
+    titleHi: 'डेंटल विनियर (मुस्कान मेकओवर / Dental Veneers)',
     slug: 'veneers',
     description: 'Ultra-thin, custom porcelain and ceramic shells to correct chips, stains, gaps, and imperfect alignment.',
+    descriptionHi: 'दांतों के रंग, गैप और टेढ़ेपन को ठीक कर चमकदार मुस्कान देने वाले अल्ट्रा-थिन पोर्सिलेन शेल्स।',
     image: 'https://picsum.photos/seed/veneers/600/400'
   },
   {
     title: 'Invisalign (Clear Aligners)',
+    titleHi: 'इनविजि़लाइन / पारदर्शी क्लिप (Invisalign Clear Aligners)',
     slug: 'invisalign',
     description: 'Discreet, comfortable clear aligner trays to straighten teeth without metal brackets or wires.',
+    descriptionHi: 'बिना तार और ब्रैकेट्स के दांतों को सीधा करने वाले अदृश्य और आरामदायक क्लियर अलाइनर्स।',
     image: 'https://picsum.photos/seed/invisalign/600/400'
   },
   {
     title: 'Cosmetic Restoration',
+    titleHi: 'कॉस्मेटिक रिस्टोरेशन (Cosmetic Restoration)',
     slug: 'cosmetic-restoration',
     description: 'Aesthetic tooth-coloured fillings, smile makeovers, and cosmetic bonding for a radiant smile.',
+    descriptionHi: 'खूबसूरत मुस्कान के लिए टूटे, घिसे या बदरंग दांतों की सौंदर्यपूर्ण कम्पोजिट बॉन्डिंग व सुधार।',
     image: 'https://picsum.photos/seed/cosmeticrestoration/600/400'
   },
   {
     title: 'Dental Bleaching',
+    titleHi: 'डेंटल ब्लीचिंग (Dental Bleaching)',
     slug: 'dental-bleaching',
     description: 'Professional in-office whitening procedure to safely brighten teeth 2 to 5 shades in a single visit.',
+    descriptionHi: 'सिर्फ एक विजिट में दांतों को 2 से 5 शेड तक सुरक्षित रूप से चमकदार बनाने की पेशेवर प्रक्रिया।',
     image: 'https://picsum.photos/seed/bleaching/600/400'
   },
   {
     title: 'Crown Lengthening',
+    titleHi: 'क्राउन लेंथनिंग (मसूड़े का सुधार / Crown Lengthening)',
     slug: 'crown-lengthening',
     description: 'Precise gum contouring to expose healthy tooth structure for crowns or to correct a gummy smile.',
+    descriptionHi: 'गमी स्माइल ठीक करने और क्राउन लगाने के लिए स्वस्थ दांत संरचना को उभारने की सटीक प्रक्रिया।',
     image: 'https://picsum.photos/seed/crownlengthening/600/400'
   },
   {
     title: 'Dental Braces',
+    titleHi: 'दांतों के ब्रेसेस (तार / Dental Braces)',
     slug: 'dental-braces',
     description: 'Traditional metal and clear ceramic braces for kids, teens, and adults to achieve ideal bite alignment.',
+    descriptionHi: 'बच्चों और बड़ों के लिए टेढ़े-मेढ़े दांतों को सही कतार में लाने वाले पारंपरिक व सेरेमिक ब्रेसेस।',
     image: 'https://picsum.photos/seed/braces/600/400'
   },
   {
     title: 'Dental Crowns',
+    titleHi: 'डेंटल क्राउन (कैप / Dental Crowns)',
     slug: 'dental-crowns',
     description: 'Custom-crafted zirconia, ceramic, and PFM caps to restore strength, function, and natural aesthetics.',
+    descriptionHi: 'कमजोर दांतों को मजबूती, प्राकृतिक सुंदरता और चबाने की क्षमता देने वाले जिरकोनिया व सेरेमिक कैप।',
     image: 'https://picsum.photos/seed/crowns/600/400'
   },
   {
     title: 'Dental Bridges',
+    titleHi: 'डेंटल ब्रिज (Dental Bridges)',
     slug: 'dental-bridges',
     description: 'Fixed tooth replacements anchored to adjacent teeth or implants to restore chewing and your smile.',
+    descriptionHi: 'पास के दांतों के सहारे खोए हुए दांतों की जगह लगने वाले मजबूत और स्थायी फिक्स्ड दांत।',
     image: 'https://picsum.photos/seed/crownsbridge/600/400'
   },
   {
     title: 'Removable Partial Dentures (RPD)',
+    titleHi: 'रिमूवेबल पार्शियल डेंचर (RPD / बत्तीसी)',
     slug: 'removable-partial-dentures',
     description: 'Comfortable, lightweight, custom-fitted removable dentures to replace multiple missing teeth.',
+    descriptionHi: 'एक से अधिक खोए दांतों की जगह लगने वाली आरामदायक, हल्की और आसानी से निकलने वाली बत्तीसी।',
     image: 'https://picsum.photos/seed/partialdenture/600/400'
   },
   {
     title: 'Complete Dentures',
+    titleHi: 'कम्प्लीट डेंचर (पूरी बत्तीसी / Complete Dentures)',
     slug: 'dentures',
     description: 'Natural-looking complete dentures designed to restore facial volume, speech clarity, and comfortable eating.',
+    descriptionHi: 'चेहरे की बनावट, स्पष्ट आवाज और आसान भोजन के लिए प्राकृतिक रूप से दिखने वाली पूरी बत्तीसी।',
     image: 'https://picsum.photos/seed/completedentures/600/400'
   },
   {
     title: 'Same-Day Crowns',
+    titleHi: 'सेम-डे क्राउन (Same-Day CEREC Crowns)',
     slug: 'same-day-crowns',
     description: 'Restorations ready in a single visit with advanced CEREC digital technology.',
+    descriptionHi: 'अत्याधुनिक डिजिटल CEREC तकनीक द्वारा एक ही विजिट में तैयार होने वाले सटीक क्राउन।',
     image: 'https://picsum.photos/seed/samedaycrowns/600/400'
   },
   {
     title: 'Teeth Whitening',
+    titleHi: 'टीथ व्हाइटनिंग (दांत सफेद करना / Teeth Whitening)',
     slug: 'teeth-whitening',
     description: 'Professional treatment for brighter, whiter teeth and long-lasting stain removal.',
+    descriptionHi: 'दांतों से जिद्दी दाग-धब्बे हटाकर लंबे समय तक रहने वाली चमकदार मुस्कान देने वाला पेशेवर उपचार।',
     image: 'https://picsum.photos/seed/whitening/600/400'
   },
   {
     title: 'Preventive Care',
+    titleHi: 'प्रिवेंटिव केयर (निवारक दंत देखभाल)',
     slug: 'preventive-care',
     description: 'Routine cleanings, fluoride treatments, and comprehensive check-ups to stop problems before they start.',
+    descriptionHi: 'दांतों की समस्याओं को शुरुआत में ही रोकने के लिए नियमित जांच, फ्लोराइड ट्रीटमेंट और क्लीनिंग।',
     image: 'https://picsum.photos/seed/preventive/600/400'
   },
   {
     title: 'Full Mouth Rehab',
+    titleHi: 'फुल माउथ रिहैबिलिटेशन (Full Mouth Rehab)',
     slug: 'full-mouth-rehab',
     description: 'Comprehensive restorative treatment combining multiple procedures for total oral health and aesthetics.',
+    descriptionHi: 'संपूर्ण मुंह के स्वास्थ्य, चबाने की क्षमता और चेहरे के सौंदर्य को पुनर्जीवित करने वाला समग्र उपचार।',
     image: 'https://picsum.photos/seed/rehab/600/400'
   },
   {
     title: 'Pediatric Restorative Dentistry',
+    titleHi: 'बच्चों की दंत चिकित्सा (Pediatric Restorative Dentistry)',
     slug: 'pediatric-restorative-dentistry',
     description: 'Gentle and child-friendly restorative treatments to protect your child\'s teeth, relieve pain, and ensure healthy development.',
+    descriptionHi: 'बच्चों के दूध के दांतों की सुरक्षा, कैविटी से बचाव और दर्द रहित उपचार के लिए बाल-सुलभ देखभाल।',
     image: 'https://picsum.photos/seed/pediatric/600/400'
   }
 ];

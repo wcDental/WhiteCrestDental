@@ -1,11 +1,15 @@
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { LanguageService } from '../../../services/language.service';
 
 interface Transformation {
   id: string;
   title: string;
+  titleHi?: string;
   category: string;
+  categoryHi?: string;
   description: string;
+  descriptionHi?: string;
   imgBefore: string;
   imgAfter: string;
 }
@@ -20,9 +24,9 @@ interface Transformation {
         
         <!-- Section Header -->
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mb-4">Real Patients, Real Smiles</h2>
+          <h2 class="text-3xl md:text-4xl font-serif text-slate-900 mb-4">{{ langService.t('previewHeading') }}</h2>
           <p class="text-slate-500 max-w-2xl mx-auto text-lg">
-            See the life-changing results of our cosmetic and restorative treatments.
+            {{ langService.t('previewSub') }}
           </p>
         </div>
 
@@ -36,14 +40,14 @@ interface Transformation {
                 <div class="w-1/2 relative overflow-hidden border-r border-white">
                    <img [src]="item.imgBefore" class="w-full h-full object-cover" alt="Before treatment">
                    <div class="absolute top-3 left-3 bg-slate-900/80 text-white text-xs font-bold px-2 py-1 rounded backdrop-blur-sm">
-                     BEFORE
+                     {{ langService.t('before') }}
                    </div>
                 </div>
                 <!-- After Side -->
                 <div class="w-1/2 relative overflow-hidden">
                    <img [src]="item.imgAfter" class="w-full h-full object-cover" alt="After treatment">
                    <div class="absolute top-3 right-3 bg-teal-600/90 text-white text-xs font-bold px-2 py-1 rounded backdrop-blur-sm shadow-sm">
-                     AFTER
+                     {{ langService.t('after') }}
                    </div>
                 </div>
               </div>
@@ -51,13 +55,15 @@ interface Transformation {
               <!-- Content -->
               <div class="p-6">
                 <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-xl font-bold text-slate-900">{{ item.title }}</h3>
+                  <h3 class="text-xl font-bold text-slate-900">
+                    {{ langService.isHindi() && item.titleHi ? item.titleHi : item.title }}
+                  </h3>
                   <span class="text-xs font-medium text-teal-600 bg-teal-50 px-2 py-1 rounded-full uppercase tracking-wide">
-                    {{ item.category }}
+                    {{ langService.isHindi() && item.categoryHi ? item.categoryHi : item.category }}
                   </span>
                 </div>
                 <p class="text-slate-500 text-sm leading-relaxed">
-                  {{ item.description }}
+                  {{ langService.isHindi() && item.descriptionHi ? item.descriptionHi : item.description }}
                 </p>
               </div>
             </div>
@@ -67,7 +73,7 @@ interface Transformation {
         <!-- CTA -->
         <div class="text-center">
           <a routerLink="/gallery" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-slate-900 hover:bg-teal-600 transition-colors duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform">
-            View Full Smile Gallery
+            {{ langService.t('viewFullGallery') }}
             <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
@@ -79,21 +85,28 @@ interface Transformation {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BeforeAfterPreviewComponent {
+  langService = inject(LanguageService);
+
   cases = signal<Transformation[]>([
     {
       id: '1',
       title: 'Porcelain Veneers',
+      titleHi: 'पोर्सिलेन विनियर (मुस्कान मेकओवर)',
       category: 'Cosmetic',
+      categoryHi: 'कॉस्मेटिक डेंटिस्ट्री',
       description: 'A complete smile makeover correcting discoloration and spacing issues for a bright, uniform look.',
-      // Using specific picsum seeds to ensure distinct but consistent imagery
+      descriptionHi: 'दांतों के रंग और गैप को ठीक करने के लिए संपूर्ण स्माइल मेकओवर, एक चमकदार और एकसमान मुस्कान के लिए।',
       imgBefore: 'https://picsum.photos/seed/teethbefore1/400/300', 
       imgAfter: 'https://picsum.photos/seed/teethafter1/400/300'
     },
     {
       id: '2',
       title: 'Professional Whitening',
+      titleHi: 'प्रोफेशनल टीथ व्हाइटनिंग',
       category: 'Whitening',
+      categoryHi: 'दांतों की सफेदी',
       description: 'One hour in-office whitening session lifting the shade by 5 levels for a radiant natural smile.',
+      descriptionHi: 'सिर्फ एक घंटे के इन-ऑफिस व्हाइटनिंग सत्र में दांतों की चमक को 5 शेड तक प्राकृतिक रूप से बढ़ाया गया।',
       imgBefore: 'https://picsum.photos/seed/teethbefore2/400/300',
       imgAfter: 'https://picsum.photos/seed/teethafter2/400/300'
     }

@@ -1,6 +1,7 @@
 
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'app-meet-the-doctor',
@@ -19,7 +20,7 @@ import { RouterLink } from '@angular/router';
               <!-- Review Badge Overlay -->
               <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg flex items-center justify-between border border-slate-100">
                 <div class="flex flex-col">
-                  <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Google Reviews</span>
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">{{ langService.t('reviewsBadge') }}</span>
                   <div class="flex items-center gap-1">
                     <span class="text-yellow-400 text-lg">★★★★★</span>
                     <span class="font-bold text-slate-900 text-lg">5.0</span>
@@ -27,7 +28,7 @@ import { RouterLink } from '@angular/router';
                 </div>
                 <div class="text-right">
                   <span class="block text-2xl font-bold text-slate-900">500+</span>
-                  <span class="text-xs text-slate-500 font-medium">Happy Patients</span>
+                  <span class="text-xs text-slate-500 font-medium">{{ langService.t('happyPatients') }}</span>
                 </div>
               </div>
             </div>
@@ -40,13 +41,13 @@ import { RouterLink } from '@angular/router';
           <!-- Content Side -->
           <div class="w-full lg:w-1/2">
             <span class="inline-block py-1 px-3 rounded-full bg-teal-100 text-teal-800 text-xs font-bold tracking-wider uppercase mb-6">
-              Founder & Dentist
+              {{ langService.t('founderTitle') }}
             </span>
             <h2 class="text-4xl md:text-5xl font-serif text-slate-900 mb-6 leading-tight">
-              Dr. Kritima Tripathi
+              {{ langService.t('doctorName') }}
             </h2>
             <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-              With over 11 years of experience, Dr. Kritima Tripathi redefines dentistry as a carefully crafted experience rooted in precision and uncompromising quality. Known for her gentle, pain-free approach, she transforms complex treatments into calm, reassuring sessions. Her practice prioritizes clinical excellence, delivering personalized, aesthetically refined results in a serene environment where every patient feels truly cared for.
+              {{ langService.t('doctorBio') }}
             </p>
 
             <div class="space-y-6 mb-10">
@@ -57,7 +58,7 @@ import { RouterLink } from '@angular/router';
                    </svg>
                  </div>
                  <div class="ml-4">
-                   <h3 class="text-lg font-bold text-slate-900">Expertise</h3>
+                   <h3 class="text-lg font-bold text-slate-900">{{ langService.t('expertiseTitle') }}</h3>
                    <p class="text-slate-500">RCT, Cosmetic & Implant Dentistry</p>
                  </div>
               </div>
@@ -70,8 +71,8 @@ import { RouterLink } from '@angular/router';
                    </svg>
                  </div>
                  <div class="ml-4">
-                   <h3 class="text-lg font-bold text-slate-900">Speciality</h3>
-                   <p class="text-slate-500">Painless Treatment</p>
+                   <h3 class="text-lg font-bold text-slate-900">{{ langService.t('specialityTitle') }}</h3>
+                   <p class="text-slate-500">{{ langService.t('specialityDesc') }}</p>
                  </div>
               </div>
 
@@ -82,14 +83,14 @@ import { RouterLink } from '@angular/router';
                    </svg>
                  </div>
                  <div class="ml-4">
-                   <h3 class="text-lg font-bold text-slate-900">Experience</h3>
-                   <p class="text-slate-500">11+ Years Practicing</p>
+                   <h3 class="text-lg font-bold text-slate-900">{{ langService.t('experienceTitle') }}</h3>
+                   <p class="text-slate-500">{{ langService.t('experienceDesc') }}</p>
                  </div>
               </div>
             </div>
 
             <a routerLink="/contact" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-full text-white bg-slate-900 hover:bg-teal-600 transition-colors duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 transform">
-              Consult Now
+              {{ langService.t('consultNow') }}
             </a>
           </div>
 
@@ -99,4 +100,6 @@ import { RouterLink } from '@angular/router';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MeetTheDoctorComponent {}
+export class MeetTheDoctorComponent {
+  langService = inject(LanguageService);
+}
