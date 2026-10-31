@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import { SERVICES_LIST, ServiceItem } from './services.data';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-services',
@@ -17,15 +18,19 @@ import { SERVICES_LIST, ServiceItem } from './services.data';
           
           <!-- Unified Header -->
           <div class="text-center max-w-4xl mx-auto mb-12">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-slate-900 mb-6 leading-tight">
-              Dental Services Reimagined
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-slate-900 mb-6 leading-tight flex items-center justify-center flex-wrap gap-3 md:gap-4">
+              <span>{{ langService.t('servicesTitle') }}</span>
+              <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-base md:text-xl font-sans font-extrabold bg-teal-50 text-teal-700 border border-teal-200/90 shadow-xs tracking-tight align-middle">
+                <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                <span>{{ serviceCount() }}</span>
+              </span>
             </h1>
             <p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-8">
-              From routine hygiene to complex full-mouth restoration, we combine artistry with advanced technology to deliver exceptional results.
+              {{ langService.t('servicesSub') }}
             </p>
             <div class="flex items-center justify-center gap-2">
               <span class="h-px w-12 bg-slate-200"></span>
-              <span class="text-teal-600 font-bold tracking-wider uppercase text-xs">Comprehensive Solutions</span>
+              <span class="text-teal-600 font-bold tracking-wider uppercase text-xs">{{ langService.t('comprehensiveSolutions') }}</span>
               <span class="h-px w-12 bg-slate-200"></span>
             </div>
           </div>
@@ -43,7 +48,7 @@ import { SERVICES_LIST, ServiceItem } from './services.data';
                 [value]="searchQuery()"
                 (input)="onSearch($event)"
                 class="block w-full pl-11 pr-11 py-4 border-2 border-slate-200 rounded-full leading-5 bg-white placeholder-slate-400 focus:outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 transition-all shadow-sm text-slate-900"
-                placeholder="Search treatments (e.g., 'Veneers', 'Implants', 'Root Canal')..."
+                [placeholder]="langService.t('searchPlaceholder')"
               >
               @if (searchQuery()) {
                 <button 
@@ -70,18 +75,20 @@ import { SERVICES_LIST, ServiceItem } from './services.data';
                     <img [src]="item.image" [alt]="item.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
                     <div class="absolute bottom-4 left-4 right-4">
-                      <h3 class="text-white text-xl font-bold drop-shadow-md">{{ item.title }}</h3>
+                      <h3 class="text-white text-xl font-bold drop-shadow-md">
+                        {{ langService.isHindi() && item.titleHi ? item.titleHi : item.title }}
+                      </h3>
                     </div>
                   </div>
                   
                   <!-- Content -->
                   <div class="p-6 flex flex-col flex-grow">
                     <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-                      {{ item.description }}
+                      {{ langService.isHindi() && item.descriptionHi ? item.descriptionHi : item.description }}
                     </p>
 
                     <div class="mt-auto flex items-center text-teal-600 font-bold text-sm uppercase tracking-wide">
-                      View Details
+                      {{ langService.t('viewDetails') }}
                       <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
@@ -94,10 +101,10 @@ import { SERVICES_LIST, ServiceItem } from './services.data';
             <!-- Empty State -->
             <div class="text-center py-20 bg-slate-50 rounded-3xl border border-dashed border-slate-300 max-w-xl mx-auto">
               <div class="text-5xl mb-4">🔍</div>
-              <h3 class="text-lg font-medium text-slate-900">No services found</h3>
-              <p class="text-slate-500 mt-1">Try adjusting your search terms or view all services.</p>
+              <h3 class="text-lg font-medium text-slate-900">{{ langService.t('noServicesFound') }}</h3>
+              <p class="text-slate-500 mt-1">{{ langService.t('adjustSearch') }}</p>
               <button (click)="clearSearch()" class="mt-4 text-teal-600 font-semibold hover:text-teal-800 transition-colors">
-                Clear search
+                {{ langService.t('clearSearch') }}
               </button>
             </div>
           }
@@ -109,31 +116,31 @@ import { SERVICES_LIST, ServiceItem } from './services.data';
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 class="text-3xl md:text-4xl font-serif mb-6">General Dentistry &<br>Preventative Care</h2>
+              <h2 class="text-3xl md:text-4xl font-serif mb-6 whitespace-pre-line">{{ langService.t('generalDentistry') }}</h2>
               <p class="text-slate-400 text-lg mb-8 leading-relaxed">
-                Foundation is everything. Our preventative program is designed to stop problems before they start, ensuring your smile lasts a lifetime.
+                {{ langService.t('generalDentistryDesc') }}
               </p>
               
               <ul class="space-y-6">
                 <li class="flex items-start">
                   <div class="flex-shrink-0 w-8 h-8 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400 mt-1">✓</div>
                   <div class="ml-4">
-                    <h3 class="text-xl font-bold">Comprehensive Exams</h3>
-                    <p class="text-slate-400 text-sm mt-1">Digital x-rays, oral cancer screening, and gum health evaluation.</p>
+                    <h3 class="text-xl font-bold">{{ langService.t('comprehensiveExams') }}</h3>
+                    <p class="text-slate-400 text-sm mt-1">{{ langService.t('comprehensiveExamsDesc') }}</p>
                   </div>
                 </li>
                 <li class="flex items-start">
                   <div class="flex-shrink-0 w-8 h-8 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400 mt-1">✓</div>
                   <div class="ml-4">
-                    <h3 class="text-xl font-bold">Hygiene & Cleaning</h3>
-                    <p class="text-slate-400 text-sm mt-1">Gentle ultrasonic cleaning to remove plaque and tartar build-up.</p>
+                    <h3 class="text-xl font-bold">{{ langService.t('hygieneCleaning') }}</h3>
+                    <p class="text-slate-400 text-sm mt-1">{{ langService.t('hygieneCleaningDesc') }}</p>
                   </div>
                 </li>
                 <li class="flex items-start">
                   <div class="flex-shrink-0 w-8 h-8 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400 mt-1">✓</div>
                   <div class="ml-4">
-                    <h3 class="text-xl font-bold">Emergency Care</h3>
-                    <p class="text-slate-400 text-sm mt-1">Same-day appointments for pain relief and urgent repairs.</p>
+                    <h3 class="text-xl font-bold">{{ langService.t('emergencyCare') }}</h3>
+                    <p class="text-slate-400 text-sm mt-1">{{ langService.t('emergencyCareDesc') }}</p>
                   </div>
                 </li>
               </ul>
@@ -150,10 +157,10 @@ import { SERVICES_LIST, ServiceItem } from './services.data';
       <!-- CTA -->
       <section class="py-20 bg-teal-50">
         <div class="max-w-4xl mx-auto text-center px-4">
-          <h2 class="text-3xl font-serif text-slate-900 mb-6">Ready to prioritize your health?</h2>
-          <p class="text-slate-600 text-lg mb-8">Book your consultation today and experience the difference.</p>
+          <h2 class="text-3xl font-serif text-slate-900 mb-6">{{ langService.t('readyToPrioritize') }}</h2>
+          <p class="text-slate-600 text-lg mb-8">{{ langService.t('readyToPrioritizeSub') }}</p>
           <a routerLink="/contact" class="inline-block bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-teal-700 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 transform duration-200">
-            Schedule Appointment
+            {{ langService.t('scheduleAppointment') }}
           </a>
         </div>
       </section>
@@ -162,11 +169,17 @@ import { SERVICES_LIST, ServiceItem } from './services.data';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ServicesComponent implements OnInit {
+  langService = inject(LanguageService);
   private title: Title = inject(Title);
   private meta: Meta = inject(Meta);
 
   searchQuery = signal('');
   allServices = signal<ServiceItem[]>(SERVICES_LIST);
+
+  serviceCount = computed(() => {
+    const count = Math.max(1, this.allServices().length - 1);
+    return `${count}+`;
+  });
 
   filteredServices = computed(() => {
     const query = this.searchQuery().toLowerCase().trim();
@@ -176,7 +189,9 @@ export class ServicesComponent implements OnInit {
 
     return services.filter(service =>
       service.title.toLowerCase().includes(query) ||
+      (service.titleHi && service.titleHi.toLowerCase().includes(query)) ||
       service.description.toLowerCase().includes(query) ||
+      (service.descriptionHi && service.descriptionHi.toLowerCase().includes(query)) ||
       service.slug.toLowerCase().includes(query)
     );
   });

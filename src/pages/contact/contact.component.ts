@@ -16,6 +16,7 @@ import {
 } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { Title, Meta } from "@angular/platform-browser";
+import { LanguageService } from "../../services/language.service";
 
 @Component({
   selector: "app-contact",
@@ -41,7 +42,7 @@ import { Title, Meta } from "@angular/platform-browser";
               ></div>
 
               <h3 class="text-2xl font-serif mb-8 relative z-10">
-                Contact Information
+                {{ langService.t('contactInfo') }}
               </h3>
 
               <div class="space-y-8 relative z-10">
@@ -74,12 +75,12 @@ import { Title, Meta } from "@angular/platform-browser";
                     <p
                       class="text-sm font-medium text-slate-400 uppercase tracking-wider mb-1"
                     >
-                      Our Office
+                      {{ langService.t('ourOffice') }}
                     </p>
                     <p class="text-lg font-medium text-white">
-                      123 Complex Building, Noida
+                      {{ langService.t('addressLine1') }}
                     </p>
-                    <p class="text-lg text-slate-300">Health City, UP 90210</p>
+                    <p class="text-lg text-slate-300">{{ langService.t('addressLine2') }}</p>
                   </div>
                 </div>
 
@@ -106,10 +107,10 @@ import { Title, Meta } from "@angular/platform-browser";
                     <p
                       class="text-sm font-medium text-slate-400 uppercase tracking-wider mb-1"
                     >
-                      Phone
+                      {{ langService.t('phoneLabel') }}
                     </p>
                     <p class="text-lg font-medium text-white">(555) 123-4567</p>
-                    <p class="text-sm text-slate-400 mt-1">Call us anytime</p>
+                    <p class="text-sm text-slate-400 mt-1">{{ langService.t('callUsAnytime') }}</p>
                   </div>
                 </div>
 
@@ -136,7 +137,7 @@ import { Title, Meta } from "@angular/platform-browser";
                     <p
                       class="text-sm font-medium text-slate-400 uppercase tracking-wider mb-1"
                     >
-                      Email
+                      {{ langService.t('emailLabel') }}
                     </p>
                     <p class="text-lg font-medium text-white break-all">
                       hello@whitecrestdental.in
@@ -167,17 +168,17 @@ import { Title, Meta } from "@angular/platform-browser";
                     <p
                       class="text-sm font-medium text-slate-400 uppercase tracking-wider mb-1"
                     >
-                      Office Hours
+                      {{ langService.t('officeHours') }}
                     </p>
                     <div
-                      class="grid grid-cols-[3rem_1fr] gap-x-2 text-sm text-slate-300"
+                      class="grid grid-cols-[4.5rem_1fr] gap-x-2 text-sm text-slate-300"
                     >
-                      <span class="text-white font-medium">M-F</span>
+                      <span class="text-white font-medium">{{ langService.isHindi() ? 'सोम-शुक्र' : 'M-F' }}</span>
                       <span>8:00 AM - 6:00 PM</span>
-                      <span class="text-white font-medium">Sat</span>
+                      <span class="text-white font-medium">{{ langService.isHindi() ? 'शनि' : 'Sat' }}</span>
                       <span>9:00 AM - 2:00 PM</span>
-                      <span class="text-white font-medium">Sun</span>
-                      <span>Closed</span>
+                      <span class="text-white font-medium">{{ langService.isHindi() ? 'रवि' : 'Sun' }}</span>
+                      <span>{{ langService.isHindi() ? 'अवकाश (बंद)' : 'Closed' }}</span>
                     </div>
                   </div>
                 </div>
@@ -186,10 +187,10 @@ import { Title, Meta } from "@angular/platform-browser";
                 <div class="pt-6 border-t border-slate-800">
                   <div class="flex items-center justify-between mb-4">
                     <span class="text-xs font-bold text-teal-400 uppercase tracking-wider">
-                      Follow & Connect With Us
+                      {{ langService.t('followConnect') }}
                     </span>
                     <span class="text-[11px] text-slate-400">
-                      Stay updated
+                      {{ langService.t('stayUpdated') }}
                     </span>
                   </div>
 
@@ -208,14 +209,14 @@ import { Title, Meta } from "@angular/platform-browser";
                       </div>
                       <div>
                         <div class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors flex items-center gap-2">
-                          <span>Follow WhatsApp Channel</span>
-                          <span class="text-[10px] uppercase font-bold bg-emerald-500/30 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/30">Official</span>
+                          <span>{{ langService.t('followWhatsApp') }}</span>
+                          <span class="text-[10px] uppercase font-bold bg-emerald-500/30 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/30">{{ langService.t('official') }}</span>
                         </div>
-                        <p class="text-xs text-slate-300 mt-0.5">Dental tips, updates & health alerts</p>
+                        <p class="text-xs text-slate-300 mt-0.5">{{ langService.t('whatsappDesc') }}</p>
                       </div>
                     </div>
                     <span class="text-emerald-400 group-hover:translate-x-1 transition-transform font-bold text-base flex items-center">
-                      Follow →
+                      {{ langService.t('followArrow') }}
                     </span>
                   </a>
 
@@ -307,8 +308,7 @@ import { Title, Meta } from "@angular/platform-browser";
                   <span
                     class="text-slate-900 font-bold text-sm flex items-center"
                   >
-                    <span class="text-teal-600 text-lg mr-2">📍</span> Find us
-                    on Maps
+                    {{ langService.t('findUsOnMaps') }}
                   </span>
                 </div>
               </div>
@@ -320,11 +320,10 @@ import { Title, Meta } from "@angular/platform-browser";
             class="bg-white rounded-3xl p-8 md:p-10 shadow-[0_20px_50px_rgba(8,_112,_184,_0.07)] border border-slate-100"
           >
             <h3 class="text-2xl font-serif text-slate-900 mb-2">
-              Send us a Message
+              {{ langService.t('sendUsMessage') }}
             </h3>
             <p class="text-slate-500 mb-8">
-              Fill out the form below and our team will get back to you within
-              24 hours.
+              {{ langService.t('fillFormDesc') }}
             </p>
 
             @if (submitted()) {
@@ -337,17 +336,16 @@ import { Title, Meta } from "@angular/platform-browser";
                   ✓
                 </div>
                 <h3 class="text-2xl font-bold text-slate-900 mb-3">
-                  Request Received!
+                  {{ langService.t('requestReceived') }}
                 </h3>
                 <p class="text-slate-500 max-w-xs mx-auto mb-8">
-                  Thank you for contacting White Crest Dental. We'll be in touch
-                  shortly to confirm your details.
+                  {{ langService.t('successMsg') }}
                 </p>
                 <button
                   (click)="resetForm()"
                   class="text-teal-600 font-bold hover:text-teal-800 underline decoration-2 underline-offset-4 transition-colors"
                 >
-                  Send another message
+                  {{ langService.t('sendAnotherMessage') }}
                 </button>
               </div>
             } @else {
@@ -360,7 +358,7 @@ import { Title, Meta } from "@angular/platform-browser";
                   <label
                     for="name"
                     class="block text-sm font-semibold text-slate-700 mb-2"
-                    >Full Name</label
+                    >{{ langService.t('fullName') }}</label
                   >
                   <input
                     type="text"
@@ -373,7 +371,7 @@ import { Title, Meta } from "@angular/platform-browser";
                     contactForm.get("name")?.touched &&
                     contactForm.get("name")?.invalid
                   ) {
-                    <p class="mt-2 text-sm text-red-500">Name is required</p>
+                    <p class="mt-2 text-sm text-red-500">{{ langService.t('nameRequired') }}</p>
                   }
                 </div>
 
@@ -382,9 +380,9 @@ import { Title, Meta } from "@angular/platform-browser";
                     <label
                       for="email"
                       class="block text-sm font-semibold text-slate-700 mb-2"
-                      >Email Address
+                      >{{ langService.t('emailAddress') }}
                       <span class="text-slate-400 font-normal"
-                        >(Optional)</span
+                        >{{ langService.t('optional') }}</span
                       ></label
                     >
                     <input
@@ -399,7 +397,7 @@ import { Title, Meta } from "@angular/platform-browser";
                       contactForm.get("email")?.hasError("email")
                     ) {
                       <p class="mt-2 text-sm text-red-500">
-                        Please enter a valid email address
+                        {{ langService.t('invalidEmail') }}
                       </p>
                     }
                   </div>
@@ -407,7 +405,7 @@ import { Title, Meta } from "@angular/platform-browser";
                     <label
                       for="phone"
                       class="block text-sm font-semibold text-slate-700 mb-2"
-                      >Phone Number</label
+                      >{{ langService.t('phoneNumber') }}</label
                     >
                     <input
                       type="tel"
@@ -420,7 +418,7 @@ import { Title, Meta } from "@angular/platform-browser";
                       contactForm.get("phone")?.touched &&
                       contactForm.get("phone")?.invalid
                     ) {
-                      <p class="mt-2 text-sm text-red-500">Phone is required</p>
+                      <p class="mt-2 text-sm text-red-500">{{ langService.t('phoneRequired') }}</p>
                     }
                   </div>
                 </div>
@@ -429,9 +427,9 @@ import { Title, Meta } from "@angular/platform-browser";
                   <label
                     for="bookingDate"
                     class="block text-sm font-semibold text-slate-700 mb-2"
-                    >Preferred Date & Time
+                    >{{ langService.t('preferredDateTime') }}
                     <span class="text-slate-400 font-normal"
-                      >(Optional)</span
+                      >{{ langService.t('optional') }}</span
                     ></label
                   >
                   <input
@@ -447,7 +445,7 @@ import { Title, Meta } from "@angular/platform-browser";
                     <label
                       for="message"
                       class="block text-sm font-semibold text-slate-700"
-                      >How can we help?</label
+                      >{{ langService.t('howCanWeHelp') }}</label
                     >
                   </div>
 
@@ -456,13 +454,13 @@ import { Title, Meta } from "@angular/platform-browser";
                     id="message"
                     rows="4"
                     class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all resize-none"
-                    placeholder="I would like to book a cleaning..."
+                    [placeholder]="langService.t('helpPlaceholder')"
                   ></textarea>
                   @if (
                     contactForm.get("message")?.touched &&
                     contactForm.get("message")?.invalid
                   ) {
-                    <p class="mt-2 text-sm text-red-500">Message is required</p>
+                    <p class="mt-2 text-sm text-red-500">{{ langService.t('messageRequired') }}</p>
                   }
                 </div>
 
@@ -472,7 +470,7 @@ import { Title, Meta } from "@angular/platform-browser";
                     for="captcha"
                     class="block text-sm font-semibold text-slate-700 mb-2"
                   >
-                    Security Check: What is {{ captchaNum1() }} +
+                    {{ langService.t('securityCheck') }} {{ captchaNum1() }} +
                     {{ captchaNum2() }}?
                   </label>
                   <div class="flex items-center gap-4">
@@ -488,7 +486,7 @@ import { Title, Meta } from "@angular/platform-browser";
                       (click)="generateCaptcha()"
                       class="text-sm text-teal-600 hover:text-teal-800 underline"
                     >
-                      Refresh Challenge
+                      {{ langService.t('refreshChallenge') }}
                     </button>
                   </div>
                   @if (
@@ -496,7 +494,7 @@ import { Title, Meta } from "@angular/platform-browser";
                     contactForm.get("captcha")?.hasError("incorrectCaptcha")
                   ) {
                     <p class="mt-2 text-sm text-red-500">
-                      Incorrect answer. Please try again.
+                      {{ langService.t('incorrectCaptcha') }}
                     </p>
                   }
                 </div>
@@ -516,7 +514,7 @@ import { Title, Meta } from "@angular/platform-browser";
                   [disabled]="contactForm.invalid || isSubmitting()"
                   class="w-full py-4 px-6 bg-teal-600 hover:bg-teal-700 text-white font-bold text-lg rounded-xl shadow-lg shadow-teal-500/30 transform transition-all duration-200 hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
                 >
-                  {{ isSubmitting() ? "Sending..." : "Send Message" }}
+                  {{ isSubmitting() ? langService.t('sending') : langService.t('sendMessage') }}
                 </button>
               </form>
             }
@@ -545,6 +543,7 @@ import { Title, Meta } from "@angular/platform-browser";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent implements OnInit {
+  langService = inject(LanguageService);
   private fb: FormBuilder = inject(FormBuilder);
   private title: Title = inject(Title);
   private meta: Meta = inject(Meta);

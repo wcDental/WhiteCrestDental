@@ -6,6 +6,8 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs/operators';
 import { Title, Meta } from '@angular/platform-browser';
 import { CARE_TIPS_ARTICLES, CareTipArticle } from './care-tips.data';
+import { CARE_TIPS_HI_MAP } from './care-tips-hi.data';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-care-tips',
@@ -23,13 +25,13 @@ import { CARE_TIPS_ARTICLES, CareTipArticle } from './care-tips.data';
               <nav aria-label="Breadcrumb">
                 <ol class="flex items-center space-x-2 text-sm text-slate-500">
                   <li>
-                    <a routerLink="/" class="hover:text-teal-600 transition-colors">Home</a>
+                    <a routerLink="/" class="hover:text-teal-600 transition-colors">{{ langService.t('home') }}</a>
                   </li>
                   <li>
                     <span class="text-slate-300">/</span>
                   </li>
                   <li>
-                    <a routerLink="/care-tips" class="hover:text-teal-600 transition-colors">Care Tips</a>
+                    <a routerLink="/care-tips" class="hover:text-teal-600 transition-colors">{{ langService.t('careTips') }}</a>
                   </li>
                   <li>
                     <span class="text-slate-300">/</span>
@@ -45,7 +47,7 @@ import { CARE_TIPS_ARTICLES, CareTipArticle } from './care-tips.data';
                 <svg class="w-4 h-4 mr-1.5 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
-                Back to All Guides
+                {{ langService.t('backToGuides') }}
               </a>
             </div>
 
@@ -89,7 +91,7 @@ import { CARE_TIPS_ARTICLES, CareTipArticle } from './care-tips.data';
                   </div>
                   <div>
                     <h4 class="text-sm font-bold text-slate-900">{{ article.author.name }}</h4>
-                    <p class="text-xs text-slate-500">{{ article.author.role }} • White Crest Dental</p>
+                    <p class="text-xs text-slate-500">{{ article.author.role }} • {{ langService.isHindi() ? 'व्हाइट क्रेस्ट डेंटल' : 'White Crest Dental' }}</p>
                   </div>
                 </div>
 
@@ -248,7 +250,7 @@ import { CARE_TIPS_ARTICLES, CareTipArticle } from './care-tips.data';
                         {{ conc.ctaText }}
                       </a>
                       <a routerLink="/care-tips" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white font-medium px-6 py-3.5 rounded-full transition-all text-sm border border-white/20">
-                        View Other Guides
+                        {{ langService.isHindi() ? 'अन्य गाइड देखें' : 'View Other Guides' }}
                       </a>
                     </div>
                   </div>
@@ -256,7 +258,7 @@ import { CARE_TIPS_ARTICLES, CareTipArticle } from './care-tips.data';
 
                 <!-- More Guides Suggestions -->
                 <div class="border-t border-slate-100 pt-10">
-                  <h4 class="text-lg font-bold text-slate-900 mb-6">Recommended Patient Guides</h4>
+                  <h4 class="text-lg font-bold text-slate-900 mb-6">{{ langService.isHindi() ? 'अनुशंसित पेशेंट गाइड' : 'Recommended Patient Guides' }}</h4>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     @for (rec of otherArticles(); track rec.id) {
                       <a [routerLink]="['/care-tips', rec.slug]" 
@@ -265,7 +267,7 @@ import { CARE_TIPS_ARTICLES, CareTipArticle } from './care-tips.data';
                         <h5 class="text-base font-bold text-slate-900 group-hover:text-teal-600 transition-colors mb-2">{{ rec.title }}</h5>
                         <p class="text-xs text-slate-500 line-clamp-2 mb-3">{{ rec.excerpt }}</p>
                         <span class="text-xs font-semibold text-slate-700 flex items-center gap-1 group-hover:text-teal-600">
-                          Read Guide →
+                          {{ langService.isHindi() ? 'गाइड पढ़ें →' : 'Read Guide →' }}
                         </span>
                       </a>
                     }
@@ -283,12 +285,14 @@ import { CARE_TIPS_ARTICLES, CareTipArticle } from './care-tips.data';
             
             <!-- Hub Header -->
             <div class="text-center max-w-3xl mx-auto mb-12">
-              <span class="text-teal-600 font-bold tracking-wider uppercase text-xs mb-2 block">Patient Education & Wellness</span>
+              <span class="text-teal-600 font-bold tracking-wider uppercase text-xs mb-2 block">
+                {{ langService.isHindi() ? 'मरीज शिक्षा और स्वास्थ्य' : 'Patient Education & Wellness' }}
+              </span>
               <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-slate-900 mb-6 leading-tight">
-                Dental Care Tips & Guides
+                {{ langService.t('careTipsTitle') }}
               </h1>
               <p class="text-xl text-slate-500 leading-relaxed">
-                Expert advice, essential symptoms, and daily prevention routines from our clinical specialists to keep your smile healthy for a lifetime.
+                {{ langService.t('careTipsSub') }}
               </p>
             </div>
 
@@ -306,7 +310,7 @@ import { CARE_TIPS_ARTICLES, CareTipArticle } from './care-tips.data';
                   [value]="searchQuery()"
                   (input)="onSearch($event)"
                   class="block w-full pl-11 pr-11 py-4 border-2 border-slate-200 rounded-full leading-5 bg-white placeholder-slate-400 focus:outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 transition-all shadow-sm text-slate-900 text-sm md:text-base"
-                  placeholder="Search care tips (e.g. 'Toothache', 'Veneers', 'Bleeding')..."
+                  [placeholder]="langService.isHindi() ? 'केयर टिप्स खोजें (जैसे दांत दर्द, विनियर, मसूड़े)...' : 'Search care tips (e.g. \\'Toothache\\', \\'Veneers\\', \\'Bleeding\\')...'"
                 >
                 @if (searchQuery()) {
                   <button 
@@ -322,12 +326,12 @@ import { CARE_TIPS_ARTICLES, CareTipArticle } from './care-tips.data';
 
               <!-- Filter Pills -->
               <div class="flex flex-wrap items-center justify-center gap-2">
-                @for (cat of categories; track cat) {
+                @for (cat of categoryOptions(); track cat.id) {
                   <button 
-                    (click)="selectCategory(cat)"
-                    [class]="selectedCategory() === cat ? 'bg-teal-600 text-white shadow-sm' : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'"
+                    (click)="selectCategory(cat.id)"
+                    [class]="selectedCategory() === cat.id ? 'bg-teal-600 text-white shadow-sm' : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'"
                     class="px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all">
-                    {{ cat }}
+                    {{ cat.label }}
                   </button>
                 }
               </div>
@@ -341,7 +345,7 @@ import { CARE_TIPS_ARTICLES, CareTipArticle } from './care-tips.data';
                     <img [src]="featuredArticle()!.featuredImage" [alt]="featuredArticle()!.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90">
                     <div class="absolute top-4 left-4">
                       <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-500 text-slate-950 shadow-md">
-                        ★ Must-Read Guide
+                        {{ langService.isHindi() ? '★ अवश्य पढ़ें' : '★ Must-Read Guide' }}
                       </span>
                     </div>
                   </div>
@@ -360,7 +364,7 @@ import { CARE_TIPS_ARTICLES, CareTipArticle } from './care-tips.data';
                     <div>
                       <a [routerLink]="['/care-tips', featuredArticle()!.slug]" 
                          class="inline-flex items-center bg-slate-900 hover:bg-teal-600 text-white font-bold px-6 py-3 rounded-full text-sm transition-all shadow-md group-hover:translate-x-1">
-                        Read Full Guide
+                        {{ langService.isHindi() ? 'पूरी गाइड पढ़ें' : 'Read Full Guide' }}
                         <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
@@ -403,7 +407,7 @@ import { CARE_TIPS_ARTICLES, CareTipArticle } from './care-tips.data';
                       </p>
 
                       <div class="pt-4 border-t border-slate-100 mt-auto flex items-center justify-between text-teal-600 font-bold text-sm">
-                        <span>Read Article</span>
+                        <span>{{ langService.isHindi() ? 'गाइड पढ़ें' : 'Read Article' }}</span>
                         <svg class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
@@ -416,22 +420,22 @@ import { CARE_TIPS_ARTICLES, CareTipArticle } from './care-tips.data';
               <!-- Empty State -->
               <div class="text-center py-20 bg-white rounded-3xl border border-dashed border-slate-300 max-w-xl mx-auto">
                 <div class="text-5xl mb-4">📖</div>
-                <h3 class="text-lg font-medium text-slate-900">No guides found</h3>
-                <p class="text-slate-500 mt-1">Try another search keyword or select a different category.</p>
+                <h3 class="text-lg font-medium text-slate-900">{{ langService.t('noServicesFound') }}</h3>
+                <p class="text-slate-500 mt-1">{{ langService.t('adjustSearch') }}</p>
                 <button (click)="resetFilters()" class="mt-4 text-teal-600 font-semibold hover:text-teal-800 transition-colors">
-                  Reset filters
+                  {{ langService.t('clearSearch') }}
                 </button>
               </div>
             }
 
             <!-- Bottom Appointment CTA -->
             <div class="mt-20 bg-slate-900 rounded-3xl p-8 md:p-14 text-white text-center max-w-5xl mx-auto shadow-2xl">
-              <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Have Questions About Your Oral Health?</h2>
+              <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">{{ langService.t('haveQuestions') }}</h2>
               <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-8">
-                Early check-ups prevent minor symptoms from developing into painful emergencies. Let our compassionate dental team keep your smile in peak condition.
+                {{ langService.t('scheduleConsultationCTA') }}
               </p>
               <a routerLink="/contact" class="inline-block bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold px-8 py-4 rounded-full text-sm md:text-base transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-                Book a Consultation
+                {{ langService.t('bookConsultation') }}
               </a>
             </div>
 
@@ -443,11 +447,18 @@ import { CARE_TIPS_ARTICLES, CareTipArticle } from './care-tips.data';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CareTipsComponent implements OnInit {
+  langService = inject(LanguageService);
   private route = inject(ActivatedRoute);
   private titleService: Title = inject(Title);
   private metaService: Meta = inject(Meta);
 
-  categories: string[] = ['All', 'Warning Signs', 'Preventive Care', 'Aesthetics & Restorations', 'Patient Guidance'];
+  categoryOptions = computed(() => [
+    { id: 'All', label: this.langService.isHindi() ? 'सभी विषय' : 'All' },
+    { id: 'Warning Signs', label: this.langService.isHindi() ? 'चेतावनी संकेत' : 'Warning Signs' },
+    { id: 'Preventive Care', label: this.langService.isHindi() ? 'रोकथाम व देखभाल' : 'Preventive Care' },
+    { id: 'Aesthetics & Restorations', label: this.langService.isHindi() ? 'मुस्कान व रेस्टोरेशन' : 'Aesthetics & Restorations' },
+    { id: 'Patient Guidance', label: this.langService.isHindi() ? 'मरीज मार्गदर्शन' : 'Patient Guidance' }
+  ]);
   selectedCategory = signal<string>('All');
   searchQuery = signal<string>('');
 
@@ -456,7 +467,33 @@ export class CareTipsComponent implements OnInit {
     { initialValue: null }
   );
 
-  articles = signal<CareTipArticle[]>(CARE_TIPS_ARTICLES);
+  rawArticles = signal<CareTipArticle[]>(CARE_TIPS_ARTICLES);
+
+  articles = computed(() => {
+    const list = this.rawArticles();
+    if (!this.langService.isHindi()) return list;
+    return list.map(art => {
+      const hi = CARE_TIPS_HI_MAP[art.slug];
+      if (!hi) return art;
+      return {
+        ...art,
+        title: hi.title || art.title,
+        subtitle: hi.subtitle || art.subtitle,
+        category: hi.category || art.category,
+        readTime: hi.readTime || art.readTime,
+        publishDate: hi.publishDate || art.publishDate,
+        author: hi.author || art.author,
+        excerpt: hi.excerpt || art.excerpt,
+        introParagraphs: hi.introParagraphs || art.introParagraphs,
+        keyPointsHeading: hi.keyPointsHeading || art.keyPointsHeading,
+        keyPoints: hi.keyPoints || art.keyPoints,
+        sections: hi.sections || art.sections,
+        mattersSection: hi.mattersSection || art.mattersSection,
+        clinicHelpSection: hi.clinicHelpSection || art.clinicHelpSection,
+        conclusion: hi.conclusion || art.conclusion
+      };
+    });
+  });
 
   featuredArticle = computed(() => {
     return this.articles().find(a => a.featured) || this.articles()[0];
@@ -480,7 +517,11 @@ export class CareTipsComponent implements OnInit {
     let list = this.articles();
 
     if (cat !== 'All') {
-      list = list.filter(a => a.category.toLowerCase() === cat.toLowerCase());
+      const origList = this.rawArticles();
+      list = list.filter(a => {
+        const raw = origList.find(r => r.id === a.id);
+        return raw && raw.category.toLowerCase() === cat.toLowerCase();
+      });
     }
 
     if (query) {
@@ -498,17 +539,20 @@ export class CareTipsComponent implements OnInit {
     // Dynamic SEO title & meta description update
     effect(() => {
       const art = this.currentArticle();
+      const isHi = this.langService.isHindi();
       if (art) {
-        this.titleService.setTitle(`${art.title} | White Crest Dental Care Tips`);
+        this.titleService.setTitle(isHi ? `${art.title} | व्हाइट क्रेस्ट डेंटल` : `${art.title} | White Crest Dental Care Tips`);
         this.metaService.updateTag({
           name: 'description',
           content: art.excerpt
         });
       } else {
-        this.titleService.setTitle('Dental Care Tips & Patient Guides | White Crest Dental');
+        this.titleService.setTitle(isHi ? 'दांतों की देखभाल के टिप्स और मरीज गाइड | व्हाइट क्रेस्ट डेंटल' : 'Dental Care Tips & Patient Guides | White Crest Dental');
         this.metaService.updateTag({
           name: 'description',
-          content: 'Read comprehensive dental care guides, symptom checklists, and preventive health tips from White Crest Dental specialists.'
+          content: isHi 
+            ? 'व्हाइट क्रेस्ट डेंटल के विशेषज्ञों द्वारा प्रमाणित दंत देखभाल गाइड, लक्षण सूचियां और प्रिवेंटिव हेल्थ टिप्स पढ़ें।'
+            : 'Read comprehensive dental care guides, symptom checklists, and preventive health tips from White Crest Dental specialists.'
         });
       }
     });
