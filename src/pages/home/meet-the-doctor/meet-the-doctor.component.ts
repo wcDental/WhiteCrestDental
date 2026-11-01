@@ -15,8 +15,8 @@ import { LanguageService } from '../../../services/language.service';
           <!-- Image Side -->
           <div class="w-full lg:w-1/2 relative">
             <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-square">
-              <img src="https://picsum.photos/seed/doctor_sarah/800/800" alt="Dr. Kritima Tripathi - Lead Dentist at White Crest Dental" class="w-full h-full object-cover">
-              
+              <img src="/doctor-photo.png" alt="Dr. Kritima Tripathi - Lead Dentist at White Crest Dental" class="w-full h-full object-cover object-top">
+
               <!-- Review Badge Overlay -->
               <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg flex items-center justify-between border border-slate-100">
                 <div class="flex flex-col">
@@ -26,10 +26,20 @@ import { LanguageService } from '../../../services/language.service';
                     <span class="font-bold text-slate-900 text-lg">5.0</span>
                   </div>
                 </div>
-                <div class="text-right">
-                  <span class="block text-2xl font-bold text-slate-900">500+</span>
-                  <span class="text-xs text-slate-500 font-medium">{{ langService.t('happyPatients') }}</span>
-                </div>
+                
+                <a 
+                  href="https://www.practo.com/greater-noida/doctor/kritima-tripathi-1/info"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="border-l border-slate-200 pl-4 text-right group">
+                  <span class="block text-[11px] font-black tracking-wider text-[#14bef0] uppercase">practo</span>
+                  <span class="text-xs font-bold text-slate-800 group-hover:text-teal-600 transition-colors flex items-center gap-1 justify-end">
+                    <span>100% Recommended</span>
+                    <svg class="w-3 h-3 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </a>
               </div>
             </div>
             
@@ -89,9 +99,107 @@ import { LanguageService } from '../../../services/language.service';
               </div>
             </div>
 
-            <a routerLink="/contact" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-full text-white bg-slate-900 hover:bg-teal-600 transition-colors duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 transform">
-              {{ langService.t('consultNow') }}
-            </a>
+            <!-- Practo Verified Trust Strip -->
+            <div class="mb-10 p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span class="text-xs font-bold uppercase tracking-wider text-slate-600">
+                    {{ langService.t('practoTrustHeading') }}
+                  </span>
+                </div>
+                <span class="text-xs font-black text-[#14bef0] bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-100">
+                  practo
+                </span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <!-- Doctor Link -->
+                <a 
+                  href="https://www.practo.com/greater-noida/doctor/kritima-tripathi-1/info" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="group flex items-center justify-between p-3.5 rounded-xl bg-slate-50 hover:bg-teal-50/70 border border-slate-200/70 hover:border-teal-400 transition-all">
+                  <div class="flex items-center gap-3 min-w-0 pr-2">
+                    <span class="w-9 h-9 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center flex-shrink-0 group-hover:bg-teal-600 group-hover:text-white transition-colors shadow-2xs">
+                      <!-- Doctor with Stethoscope Icon -->
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="6.5" r="3.5"/>
+                        <path d="M5 21v-1.5a4.5 4.5 0 0 1 4.5-4.5h5a4.5 4.5 0 0 1 4.5 4.5V21"/>
+                        <path d="M8.5 10.5h1v3a2.5 2.5 0 0 0 5 0v-3h1"/>
+                        <path d="M12 16.5v2"/>
+                        <circle cx="12" cy="19.5" r="1" fill="currentColor"/>
+                      </svg>
+                    </span>
+                    <div class="min-w-0">
+                      <span class="block text-xs font-bold text-slate-900 group-hover:text-teal-700 transition-colors truncate">
+                        {{ langService.t('practoDoctorProfile') }}
+                      </span>
+                      <span class="block text-[11px] text-slate-500">
+                        {{ langService.t('doctorPractoBadge') }}
+                      </span>
+                    </div>
+                  </div>
+                  <span class="w-7 h-7 rounded-lg bg-white group-hover:bg-teal-600 text-slate-400 group-hover:text-white flex items-center justify-center flex-shrink-0 shadow-xs transition-colors text-xs font-bold">
+                    ↗
+                  </span>
+                </a>
+
+                <!-- Clinic Link -->
+                <a 
+                  href="https://www.practo.com/greater-noida/clinic/white-crest-dental-greater-noida-west" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="group flex items-center justify-between p-3.5 rounded-xl bg-slate-50 hover:bg-sky-50/70 border border-slate-200/70 hover:border-sky-400 transition-all">
+                  <div class="flex items-center gap-3 min-w-0 pr-2">
+                    <span class="w-9 h-9 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center flex-shrink-0 group-hover:bg-[#14bef0] group-hover:text-white transition-colors shadow-2xs">
+                      <!-- Clinic Building Icon -->
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 21h18"/>
+                        <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/>
+                        <path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/>
+                        <path d="M10 9h4"/>
+                        <path d="M12 7v4"/>
+                      </svg>
+                    </span>
+                    <div class="min-w-0">
+                      <span class="block text-xs font-bold text-slate-900 group-hover:text-sky-700 transition-colors truncate">
+                        {{ langService.t('practoClinicProfile') }}
+                      </span>
+                      <span class="block text-[11px] text-slate-500">
+                        {{ langService.t('clinicPractoBadge') }}
+                      </span>
+                    </div>
+                  </div>
+                  <span class="w-7 h-7 rounded-lg bg-white group-hover:bg-[#14bef0] text-slate-400 group-hover:text-white flex items-center justify-center flex-shrink-0 shadow-xs transition-colors text-xs font-bold">
+                    ↗
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4">
+              <a routerLink="/contact" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-full text-white bg-slate-900 hover:bg-teal-600 transition-colors duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 transform">
+                {{ langService.t('consultNow') }}
+              </a>
+
+              <a 
+                href="https://www.practo.com/greater-noida/clinic/white-crest-dental-greater-noida-west" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center justify-center gap-2.5 px-6 py-4 border-2 border-slate-300 hover:border-teal-500 text-base font-semibold rounded-full text-slate-800 bg-white hover:bg-slate-50 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5">
+                <!-- Clinic Icon -->
+                <svg class="w-5 h-5 text-[#14bef0]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 21h18"/>
+                  <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/>
+                  <path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/>
+                  <path d="M10 9h4"/>
+                  <path d="M12 7v4"/>
+                </svg>
+                <span>{{ langService.t('bookViaPracto') }}</span>
+                <span class="text-[#14bef0] font-black text-xs">practo</span>
+              </a>
+            </div>
           </div>
 
         </div>

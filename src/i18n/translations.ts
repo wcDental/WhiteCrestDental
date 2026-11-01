@@ -58,6 +58,19 @@ export const TRANSLATIONS = {
     technologyTitle: 'Advanced Technology',
     technologyDesc: 'Modern digital diagnostic tools for precise, predictable, long-lasting outcomes.',
 
+    // Practo Verification & Trust
+    practoVerifiedDoctor: 'Practo Verified Doctor',
+    practoDoctorProfile: 'Dr. Kritima on Practo',
+    practoDoctorReviews: 'Verified Patient Reviews & Stories',
+    practoClinicProfile: 'White Crest Dental on Practo',
+    practoClinicDesc: 'Verified Greater Noida West Clinic listing with instant appointment booking',
+    bookViaPracto: 'Book on Practo',
+    viewOnPracto: 'View on Practo',
+    practoTrustHeading: 'Verified on Practo',
+    practoTrustSub: "Consult with confidence — verified credentials, authentic patient feedback, and seamless booking on India's most trusted healthcare platform.",
+    doctorPractoBadge: '100% Recommended on Practo',
+    clinicPractoBadge: 'Practo Verified Clinic',
+
     // Before/After
     previewHeading: 'Real Patients, Real Smiles',
     previewSub: 'See the life-changing results of our cosmetic and restorative treatments.',
@@ -230,6 +243,19 @@ export const TRANSLATIONS = {
     comfortDesc: 'दांतों के इलाज के डर और तनाव को दूर करने वाला शांत क्लिनिकल माहौल।',
     technologyTitle: 'अत्याधुनिक क्लिनिकल तकनीक',
     technologyDesc: 'सटीक जांच और स्थायी परिणामों के लिए अत्याधुनिक डिजिटल उपकरण।',
+
+    // Practo Verification & Trust
+    practoVerifiedDoctor: 'प्रैक्टो सत्यापित डॉक्टर',
+    practoDoctorProfile: 'प्रैक्टो पर डॉ. कृतिमा की प्रोफाइल',
+    practoDoctorReviews: 'मरीजों की सत्यापित समीक्षाएं व रेटिंग',
+    practoClinicProfile: 'व्हाइट क्रेस्ट डेंटल (प्रैक्टो लिस्टिंग)',
+    practoClinicDesc: 'ग्रेटर नोएडा वेस्ट क्लिनिक की सत्यापित लिस्टिंग और तुरंत अपॉइंटमेंट बुकिंग',
+    bookViaPracto: 'प्रैक्टो पर बुक करें',
+    viewOnPracto: 'प्रैक्टो पर देखें',
+    practoTrustHeading: 'प्रैक्टो द्वारा सत्यापित',
+    practoTrustSub: 'पूर्ण विश्वास के साथ परामर्श लें — भारत के प्रमुख हेल्थकेयर प्लेटफॉर्म पर सत्यापित क्रेडेंशियल्स और मरीजों की प्रामाणिक समीक्षाएं।',
+    doctorPractoBadge: 'प्रैक्टो पर 100% अनुशंसित',
+    clinicPractoBadge: 'प्रैक्टो सत्यापित क्लिनिक',
 
     // Before/After
     previewHeading: 'सच्चे मरीज, असली मुस्कान',

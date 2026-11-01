@@ -39,13 +39,36 @@ import { LanguageService } from '../../services/language.service';
                </a>
              </div>
              
-             <div class="mt-10 flex items-center gap-3 text-sm text-slate-400 font-medium">
-                <div class="flex -space-x-3">
-                   <img src="https://picsum.photos/seed/p1/60/60" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Patient">
-                   <img src="https://picsum.photos/seed/p2/60/60" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Patient">
-                   <img src="https://picsum.photos/seed/p3/60/60" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Patient">
+             <div class="mt-10 flex flex-wrap items-center gap-4 text-sm text-slate-500 font-medium">
+                <div class="flex items-center gap-3">
+                  <div class="flex -space-x-3">
+                     <img src="https://picsum.photos/seed/p1/60/60" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Patient">
+                     <img src="https://picsum.photos/seed/p2/60/60" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Patient">
+                     <img src="https://picsum.photos/seed/p3/60/60" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Patient">
+                  </div>
+                  <span>{{ langService.t('lovedBy') }}</span>
                 </div>
-                <span>{{ langService.t('lovedBy') }}</span>
+
+                <span class="hidden sm:inline text-slate-300">•</span>
+
+                <!-- Practo Trust Chip -->
+                <a 
+                  href="https://www.practo.com/greater-noida/clinic/white-crest-dental-greater-noida-west" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sky-50 hover:bg-sky-100 text-slate-700 text-xs font-bold border border-sky-200/70 shadow-2xs transition-all hover:scale-105 group">
+                  <!-- Clinic Building Icon -->
+                  <svg class="w-3.5 h-3.5 text-[#14bef0] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 21h18"/>
+                    <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/>
+                    <path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/>
+                    <path d="M10 9h4"/>
+                    <path d="M12 7v4"/>
+                  </svg>
+                  <span class="text-[#14bef0] font-black">practo</span>
+                  <span>{{ langService.t('clinicPractoBadge') }}</span>
+                  <span class="text-slate-400 group-hover:text-teal-600">↗</span>
+                </a>
              </div>
           </div>
         </div>
