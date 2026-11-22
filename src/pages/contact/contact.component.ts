@@ -41,7 +41,7 @@ import { LanguageService } from "../../services/language.service";
                 </span>
               </div>
               <h3 class="text-xl md:text-2xl font-serif font-bold text-slate-900 mb-2">
-                {{ langService.isHindi() ? 'प्रैक्टो पर ऑनलाइन अपॉइंटमेंट बुक करें' : 'Book Instantly & Check Reviews on Practo' }}
+                {{ langService.isHindi() ? 'प्रैक्टो पर ऑनलाइन अपॉइंटमेंट बुक करें' : 'Book Instantly on Practo' }}
               </h3>
               <p class="text-slate-600 text-sm leading-relaxed">
                 {{ langService.t('practoTrustSub') }}
@@ -50,30 +50,10 @@ import { LanguageService } from "../../services/language.service";
 
             <div class="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full md:w-auto flex-shrink-0">
               <a 
-                href="https://www.practo.com/greater-noida/doctor/kritima-tripathi-1/info" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-full bg-white hover:bg-slate-900 text-slate-900 hover:text-white font-bold text-sm border border-slate-300 hover:border-slate-900 shadow-xs hover:shadow-md transition-all duration-200 group">
-                <!-- Doctor with Stethoscope Icon -->
-                <svg class="w-4 h-4 text-teal-600 group-hover:text-teal-400 transition-colors flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="6.5" r="3.5"/>
-                  <path d="M5 21v-1.5a4.5 4.5 0 0 1 4.5-4.5h5a4.5 4.5 0 0 1 4.5 4.5V21"/>
-                  <path d="M8.5 10.5h1v3a2.5 2.5 0 0 0 5 0v-3h1"/>
-                  <path d="M12 16.5v2"/>
-                  <circle cx="12" cy="19.5" r="1" fill="currentColor"/>
-                </svg>
-                <span>{{ langService.t('practoDoctorProfile') }}</span>
-                <span class="text-[#14bef0] font-black text-xs">practo</span>
-                <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-
-              <a 
                 href="https://www.practo.com/greater-noida/clinic/white-crest-dental-greater-noida-west" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-full bg-[#14bef0] hover:bg-[#0fa6d3] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all duration-200 group">
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#14bef0] hover:bg-[#0fa6d3] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all duration-200 group">
                 <!-- Clinic Building Icon -->
                 <svg class="w-4 h-4 text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M3 21h18"/>
