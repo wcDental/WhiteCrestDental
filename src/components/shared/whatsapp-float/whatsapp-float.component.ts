@@ -8,7 +8,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     <a href="https://wa.me/9000000000"
        target="_blank"
        rel="noopener noreferrer"
-       class="fixed bottom-6 right-6 z-50 group flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:shadow-[0_8px_24px_rgba(37,211,102,0.3)] transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-[#25D366]/30 print:hidden"
+       class="fixed bottom-20 right-4 md:bottom-6 md:right-6 z-50 group flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:shadow-[0_8px_24px_rgba(37,211,102,0.3)] transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-[#25D366]/30 print:hidden"
        aria-label="Chat with us on WhatsApp">
        
        <!-- Tooltip Text (Visible on hover) -->

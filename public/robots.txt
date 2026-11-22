@@ -1,0 +1,45 @@
+# Robots.txt for White Crest Dental (https://www.whitecrestdental.in)
+# Welcome all web crawlers and AI search agents
+
+User-agent: *
+Allow: /
+
+# OpenAI Crawlers (ChatGPT & SearchGPT)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Google & Gemini AI
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Anthropic Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Microsoft Bing & Copilot
+User-agent: Bingbot
+Allow: /
+
+# Sitemaps & AI Reference
+Sitemap: https://www.whitecrestdental.in/sitemap.xml
+LLM-Reference: https://www.whitecrestdental.in/llms.txt
